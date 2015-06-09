@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AutomationTest>
+  <EquiRectangularGridForSmallXYZ>
+    <FilePath>TestUtils\SmallSizeETOPFile.xyz</FilePath>
+    <Top>46.0</Top>
+    <Bottom>90.0</Bottom>
+    <Left>-180.0</Left>
+    <Right>180.0</Right>
+    <Min>-8459.0</Min>
+    <Max>5499.0</Max>
+    <Level>0</Level>
+    <ExpectedError>An error occurred while reading input image file. Check the path and try again.</ExpectedError>
+  </EquiRectangularGridForSmallXYZ>
+  <EquiRectangularGridForMediumSizelXYZ>
+    <FilePath>TestUtils\MediumSizeETOPFile.xyz</FilePath>
+    <Top>-9.700005</Top>
+    <Bottom>90.0</Bottom>
+    <Left>-180.0</Left>
+    <Right>180.0</Right>
+    <Min>-10714.0</Min>
+    <Max>8266.0</Max>
+    <Level>0</Level>
+  </EquiRectangularGridForMediumSizelXYZ>
+  <EquiRectangularGridForLargeSizelXYZ>
+    <FilePath>TestUtils\ETOPO1_Bed_g_int_small.xyz</FilePath>
+    <Top>-90.0</Top>
+    <Bottom>90.0</Bottom>
+    <Left>-180.0</Left>
+    <Right>180.0</Right>
+    <Min>-10714.0</Min>
+    <Max>8266.0</Max>
+    <Level>0</Level>
+    <ExpectedError>Value cannot be null.Parameter name: path</ExpectedError>
+  </EquiRectangularGridForLargeSizelXYZ>
+  <VerticalColorMap>
+    <colorMapFile>TestUtils\ColorMap.png</colorMapFile>
+    <ExpectedError>Value cannot be null.Parameter name: colorMapFile</ExpectedError>
+  </VerticalColorMap>
+  <HorizontalColorMap>
+    <colorMapFile>TestUtils\HorizontalColorMap.png</colorMapFile>
+    <ExpectedError>Value cannot be null.Parameter name: grid</ExpectedError>
+  </HorizontalColorMap>
+  <DifferentColorMap>
+    <colorMapFile>TestUtils\DifferentColorMap.png</colorMapFile>
+  </DifferentColorMap>
+  <EquiRectangularWorldImage>
+    <FilePath>TestUtils\world.topo.bathy.200401.3x5400x2700.jpg</FilePath>
+    <Top>-90</Top>
+    <Bottom>90.0</Bottom>
+    <Left>-180.0</Left>
+    <Right>180.0</Right>
+    <Min>-8459.0</Min>
+    <Max>5499.0</Max>
+    <Level>5</Level>
+    <ExpectedError>Value cannot be null.Parameter name: path</ExpectedError>
+  </EquiRectangularWorldImage>
+  <EquiRectangularWorldPng>
+    <FilePath>TestUtils\world.topo.bathy.200401.3x5400x2700.png</FilePath>
+    <Top>-90</Top>
+    <Bottom>90.0</Bottom>
+    <Left>-180.0</Left>
+    <Right>180.0</Right>
+    <Min>-8459.0</Min>
+    <Max>5499.0</Max>
+    <Level>5</Level>
+    <ExpectedError>Value cannot be null.Parameter name: bitmap</ExpectedError>
+  </EquiRectangularWorldPng>
+  <EquiRectangularWorldPngStream>
+    <FilePath>TestUtils\world.topo.bathy.200401.3x5400x2700.png</FilePath>
+    <Top>-90</Top>
+    <Bottom>90.0</Bottom>
+    <Left>-180.0</Left>
+    <Right>180.0</Right>
+    <Min>-8459.0</Min>
+    <Max>5499.0</Max>
+    <Level>5</Level>
+    <ExpectedError>Value cannot be null.Parameter name: stream</ExpectedError>
+   </EquiRectangularWorldPngStream>
+  <DemSerializerTest>
+    <ExpectedError>Value cannot be null.Parameter name: destination</ExpectedError>
+  </DemSerializerTest>
+  <ImageTileSerializer>
+    <ExpectedError>Value cannot be null.Parameter name: format</ExpectedError>
+  </ImageTileSerializer>
+  <MercDemSerializerTest>
+    <ExpectedError>Value cannot be null.Parameter name: map</ExpectedError>
+  </MercDemSerializerTest>
+  <MercDemSerializerError>
+    <ExpectedError>Value cannot be null.Parameter name: serializer</ExpectedError>
+  </MercDemSerializerError>
+  </AutomationTest>

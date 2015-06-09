@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ArgumentErrorMessage" xml:space="preserve">
+    <value>The folder doesn't exist. Provide a valid path.</value>
+  </data>
+  <data name="BottomRightLatitudeLabel" xml:space="preserve">
+    <value>Bottom Right Latitude</value>
+  </data>
+  <data name="BottomRightLongitudeLabel" xml:space="preserve">
+    <value>Bottom Right Longitude</value>
+  </data>
+  <data name="BoundingCoordinatesLabel" xml:space="preserve">
+    <value>Bounding Co-ordinates</value>
+  </data>
+  <data name="BoundingCoordinatesToolTip" xml:space="preserve">
+    <value>Specify the bounding co-ordinates the source imagery represents. By default the imagery represents the entire world.</value>
+  </data>
+  <data name="CalculatingLabel" xml:space="preserve">
+    <value>Calculating...</value>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CloseToolTip" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="CreateTileGeneratorDescLabel" xml:space="preserve">
+    <value>Create Tiles</value>
+  </data>
+  <data name="CreateTileGeneratorLabel" xml:space="preserve">
+    <value>Generate Tile Pyramids</value>
+  </data>
+  <data name="CreditsLabel" xml:space="preserve">
+    <value>Credits</value>
+  </data>
+  <data name="CreditsToolTip" xml:space="preserve">
+    <value>You can specify who you would like to credit for this imagery.</value>
+  </data>
+  <data name="CreditsURLLabel" xml:space="preserve">
+    <value>Credits URL</value>
+  </data>
+  <data name="CreditsURLToolTip" xml:space="preserve">
+    <value>You can specify the URL to the web site of the organization that you would like to credit for this imagery.</value>
+  </data>
+  <data name="DesiredProjectionLabel" xml:space="preserve">
+    <value>Desired Projection</value>
+  </data>
+  <data name="DesiredProjectionToolTip" xml:space="preserve">
+    <value>Specify the spherical projection you would like your output imagery to be in. </value>
+  </data>
+  <data name="FileNameLabel" xml:space="preserve">
+    <value>File Name*</value>
+  </data>
+  <data name="FileNameToolTip" xml:space="preserve">
+    <value>Provide a name for the output WTML file that will be generated. This name will be displayed in WWT.</value>
+  </data>
+  <data name="FileNotFoundError" xml:space="preserve">
+    <value>The file no longer exists.</value>
+  </data>
+  <data name="FolderNotFoundError" xml:space="preserve">
+    <value>The output folder no longer exists.</value>
+  </data>
+  <data name="GeneratePlateLabel" xml:space="preserve">
+    <value>Generate Plate File</value>
+  </data>
+  <data name="GeneratePlateToolTip" xml:space="preserve">
+    <value>Generate a plate file to bundle all tiles into a single file. Plate files are perfect for transfering the image tile pyramid set. </value>
+  </data>
+  <data name="GenericErrorMessage" xml:space="preserve">
+    <value>The current operation cannot be completed. Please try again later.</value>
+  </data>
+  <data name="ImageConversionLabel" xml:space="preserve">
+    <value>Image Conversion Details</value>
+  </data>
+  <data name="ImageDimensionLabel" xml:space="preserve">
+    <value>Input Image Dimensions</value>
+  </data>
+  <data name="ImagePathLabel" xml:space="preserve">
+    <value>Input Image Path</value>
+  </data>
+  <data name="ImagePathToolTip" xml:space="preserve">
+    <value>Provide the location of image that you would like to tile and view in WWT. </value>
+  </data>
+  <data name="ImagePropertiesLabel" xml:space="preserve">
+    <value>Input Image Properties</value>
+  </data>
+  <data name="InputDetailsDescLabel" xml:space="preserve">
+    <value>Use this tool to generate tile pyramids that can be viewed in the WorldWide Telescope.</value>
+  </data>
+  <data name="InputDetailsHeaderLabel" xml:space="preserve">
+    <value>Tile Generator</value>
+  </data>
+  <data name="InputDetailsImageLabel" xml:space="preserve">
+    <value>Provide Input Image</value>
+  </data>
+  <data name="InputDetailsMandatoryLabel" xml:space="preserve">
+    <value>All fields are required</value>
+  </data>
+  <data name="InputDetailsWelcomeLabel" xml:space="preserve">
+    <value>Welcome to the Tile Generator</value>
+  </data>
+  <data name="InputFileNotFoundError" xml:space="preserve">
+    <value>Input file could not be found. Please select a valid file and try again.</value>
+  </data>
+  <data name="InputNextButton" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="InputOutputpropsLabel" xml:space="preserve">
+    <value>Specify Output Properties</value>
+  </data>
+  <data name="InputPropetiesLabel" xml:space="preserve">
+    <value>Input Properties</value>
+  </data>
+  <data name="InvalidBoundaryLatValError" xml:space="preserve">
+    <value>Top left latitude must be more than the bottom right latitude.</value>
+  </data>
+  <data name="InvalidBoundaryLongValError" xml:space="preserve">
+    <value>Top left longitude must be lesser than the bottom right longitude.</value>
+  </data>
+  <data name="InvalidDataError" xml:space="preserve">
+    <value>Invalid input. Please provide a numeric value.</value>
+  </data>
+  <data name="InvalidImageFormat" xml:space="preserve">
+    <value>Input images in jpg, jpeg, png and tiff format only are supported. Please provide an image in one of these formats.</value>
+  </data>
+  <data name="InvalidInputFile" xml:space="preserve">
+    <value>Selected input file is not valid. Please select a valid file and try again.</value>
+  </data>
+  <data name="InvalidInputImagePath" xml:space="preserve">
+    <value>Image could not be found at the specified location.</value>
+  </data>
+  <data name="InvalidLatitudeError" xml:space="preserve">
+    <value>Please provide data between -90 to +90</value>
+  </data>
+  <data name="InvalidLongitudeError" xml:space="preserve">
+    <value>Please provide data from -180 to +180</value>
+  </data>
+  <data name="LevelsLabel" xml:space="preserve">
+    <value>Max Number of Levels</value>
+  </data>
+  <data name="LevelsToolTip" xml:space="preserve">
+    <value>The maximum number of levels of the pyramid is suggested for you based on the size of the input image and the area it covers. Decreasing this number is useful when testing as smaller pyramids are naturally quicker to generate.</value>
+  </data>
+  <data name="LoadingContent" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="MandatoryError" xml:space="preserve">
+    <value>This field is required</value>
+  </data>
+  <data name="MessageBoxCaption" xml:space="preserve">
+    <value>Tile Generator</value>
+  </data>
+  <data name="MinimizeTooltip" xml:space="preserve">
+    <value>Minimize</value>
+  </data>
+  <data name="NotApplicable" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="OkButton" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="OpenFileDialogTitle" xml:space="preserve">
+    <value>Select an input image </value>
+  </data>
+  <data name="OpenFileFilter" xml:space="preserve">
+    <value>Image Files(*.PNG;*.JPG;*.JPEG,*.TIFF,*.TIF)|*.PNG;*.JPG;*.JPEG;*.TIFF;*.TIF</value>
+  </data>
+  <data name="OpenFileLabel" xml:space="preserve">
+    <value>Open in WWT</value>
+  </data>
+  <data name="OpenFolderDialogDesc" xml:space="preserve">
+    <value>Please select an output folder.</value>
+  </data>
+  <data name="OpenFolderLocationLabel" xml:space="preserve">
+    <value>Open Folder Location</value>
+  </data>
+  <data name="OutOfMemoryMessage" xml:space="preserve">
+    <value>The image exceeds the size limit. Please try uploading a new image. </value>
+  </data>
+  <data name="OutputBackButton" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="OutputCollectionLabel" xml:space="preserve">
+    <value>Output Collection Details</value>
+  </data>
+  <data name="OutputCreateButton" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="OutputDetailsLabel" xml:space="preserve">
+    <value>Provide Output Details</value>
+  </data>
+  <data name="OutputFilenameInvalidCharacterError" xml:space="preserve">
+    <value>Output filename can't contain any of the following characters :
+\ / : * ? "  |  &lt; &gt;</value>
+  </data>
+  <data name="OutputFolderLabel" xml:space="preserve">
+    <value>Output Folder Path</value>
+  </data>
+  <data name="OutputInfoLabel" xml:space="preserve">
+    <value>Modify your output tile pyramid settings.</value>
+  </data>
+  <data name="OutputPathInvalidCharacterError" xml:space="preserve">
+    <value>Output path contains invalid characters.</value>
+  </data>
+  <data name="OutputPathLabel" xml:space="preserve">
+    <value>Output Folder Path*</value>
+  </data>
+  <data name="OutputPathToolTip" xml:space="preserve">
+    <value>You can specify where you would like the tile pyramids to be generated. By default they will be generated in your ProgramData folder.</value>
+  </data>
+  <data name="PathTooLongErrorMessage" xml:space="preserve">
+    <value>The folder path is too long.</value>
+  </data>
+  <data name="ProcessingText" xml:space="preserve">
+    <value>Processing...</value>
+  </data>
+  <data name="ProgressBarErrorTag" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ProgressBarProcessingTag" xml:space="preserve">
+    <value>Processing</value>
+  </data>
+  <data name="ProgressBarSuccessTag" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="ProgressCancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ProgressCloseButton" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="ProgressResetButton" xml:space="preserve">
+    <value>Restart Tiling</value>
+  </data>
+  <data name="ProgressStartOverButton" xml:space="preserve">
+    <value>Start Over</value>
+  </data>
+  <data name="ProgressUpdateLabel" xml:space="preserve">
+    <value>Progress Update</value>
+  </data>
+  <data name="PyramidGenerationCompletedMessage" xml:space="preserve">
+    <value>Pyramid generation was successfully completed in {0:D} seconds.</value>
+  </data>
+  <data name="PyramidGenerationErrorMessage" xml:space="preserve">
+    <value>There was an error while generating the pyramid. Please try again later.</value>
+  </data>
+  <data name="PyramidGenerationOutOfMemoryMessage" xml:space="preserve">
+    <value>The image could not be processed due to memory limitation.   </value>
+  </data>
+  <data name="RequiredLabel" xml:space="preserve">
+    <value>*Required Fields</value>
+  </data>
+  <data name="SecurityErrorMessage" xml:space="preserve">
+    <value>The folder is not accessible.</value>
+  </data>
+  <data name="SourceProjectionLabel" xml:space="preserve">
+    <value>Source Image Projection</value>
+  </data>
+  <data name="SourceProjectionToolTip" xml:space="preserve">
+    <value>Specify the projection your source imagery is in.</value>
+  </data>
+  <data name="StepCompleted" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="StepLoadingImage" xml:space="preserve">
+    <value>Loading image</value>
+  </data>
+  <data name="StepPlateFileGeneration" xml:space="preserve">
+    <value>Generating plate file</value>
+  </data>
+  <data name="StepPyramidGeneration" xml:space="preserve">
+    <value>Generating tiles</value>
+  </data>
+  <data name="StepStarted" xml:space="preserve">
+    <value>Started</value>
+  </data>
+  <data name="StepThumbnailGeneration" xml:space="preserve">
+    <value>Generating thumbnail image</value>
+  </data>
+  <data name="StepWTMLFileCreate" xml:space="preserve">
+    <value>Generating WTML file</value>
+  </data>
+  <data name="TileCompletedTime" xml:space="preserve">
+    <value>0 Sec</value>
+  </data>
+  <data name="TileGeneratorLabel" xml:space="preserve">
+    <value>Tile Generator</value>
+  </data>
+  <data name="TimeLabel" xml:space="preserve">
+    <value>Time </value>
+  </data>
+  <data name="TimeRemainingLabel" xml:space="preserve">
+    <value>Estimated Time Remaining : </value>
+  </data>
+  <data name="TopLeftLatitudeLabel" xml:space="preserve">
+    <value>Top Left Latitude</value>
+  </data>
+  <data name="TopLeftLongitudeLabel" xml:space="preserve">
+    <value>Top Left Longitude</value>
+  </data>
+  <data name="UserCancelledErrorMessage" xml:space="preserve">
+    <value>Tile generation was cancelled by user.</value>
+  </data>
+  <data name="WhatsThisText" xml:space="preserve">
+    <value>What's this?</value>
+  </data>
+</root>

@@ -1,0 +1,114 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+    xmlns:ResourceString="clr-namespace:Microsoft.Research.Wwt.TileGenerator.Properties"
+    x:Class="Microsoft.Research.Wwt.TileGenerator.OutputDetails"
+    x:Name="UserControl"
+    d:DesignWidth="640" d:DesignHeight="480" FontFamily="Myriad Pro" Width="800">
+    <UserControl.Resources>
+        <ResourceString:Resources x:Key="ResourceKeyStrings"></ResourceString:Resources>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Margin="20,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <ContentControl Content="2" VerticalAlignment="Top" Style="{DynamicResource Wizardnumber}" HorizontalAlignment="Right" Margin="0,2,5,0"/>
+        <TextBlock  Text="{Binding Path=OutputDetailsLabel, Source={StaticResource ResourceKeyStrings}}" Margin="{DynamicResource TopTwentyMargin}" Style="{DynamicResource SteptitleStyle}"/>
+        <StackPanel Grid.Row="1">
+            <TextBlock  TextWrapping="Wrap" Text="{Binding Path=OutputInfoLabel, Source={StaticResource ResourceKeyStrings}}"   Margin="0,0,0,0" Style="{DynamicResource titleDescStyle}"/>
+            <Border Padding="2,1" Grid.Row="3" d:LayoutOverrides="Height" Margin="0,5,20,0" Background="{DynamicResource BlueTransGradientBrush}">
+                <TextBlock TextWrapping="Wrap" Text="{Binding Path=RequiredLabel, Source={StaticResource ResourceKeyStrings}}" Foreground="{DynamicResource TitleForegroundBrush}" VerticalAlignment="Center" Margin="5,0,0,0"/>
+            </Border>
+        </StackPanel>
+        <Grid Grid.Row="2" Margin="{DynamicResource TopTwentyMargin}" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".42*"/>
+                <ColumnDefinition Width=".6*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel x:Name="ImageConversionPane">
+                <Border Background="#FFDDE3ED" CornerRadius="6" Padding="5,2,10,2" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock  Text="{Binding Path=ImageConversionLabel, Source={StaticResource ResourceKeyStrings}}" Style="{DynamicResource SectionHeaderLabelstyle}" Margin="0,0,-0.001,0" d:LayoutOverrides="Width"/>
+                    </StackPanel>
+                </Border>
+                <StackPanel Orientation="Vertical" Margin="15,0" HorizontalAlignment="Left">
+                    <ContentControl Content="{Binding Path=DesiredProjectionLabel, Source={StaticResource ResourceKeyStrings}}" Style="{DynamicResource GroupHeaderStyle}" ToolTip="{Binding Path=DesiredProjectionToolTip, Source={StaticResource ResourceKeyStrings}}" Margin="{DynamicResource ContentTiltleMargin}"/>
+                    <ComboBox x:Name="OutputProjectionCombo" VerticalContentAlignment="Center" FontSize="{DynamicResource LabelFontsize}" Height="{DynamicResource Step2ItemHeight}" Foreground="{DynamicResource ForegroundBlueBrush}" ItemsSource="{Binding OutputProjectionTypes}"
+                              SelectedItem="{Binding SelectedOutputProjectionType,Mode=TwoWay}"  IsEnabled="{Binding IsOutputProjectionEnabled}" Background="{DynamicResource ComboboxBGBrush}" Width="{DynamicResource TextBoxWidth}" Margin="{DynamicResource ContentItemMargin}"/>
+                    <ContentControl Content="{Binding Path=LevelsLabel, Source={StaticResource ResourceKeyStrings}}" Style="{DynamicResource GroupHeaderStyle}" ToolTip="{Binding Path=LevelsToolTip, Source={StaticResource ResourceKeyStrings}}" Margin="{DynamicResource ContentTiltleMargin}"/>
+                    <ComboBox x:Name="MaxLevelCombo" VerticalContentAlignment="Center" FontSize="{DynamicResource LabelFontsize}" Height="{DynamicResource Step2ItemHeight}" ItemsSource="{Binding Levels}"
+                           SelectedItem="{Binding SelectedLevel,Mode=TwoWay}"  Foreground="{DynamicResource ForegroundBlueBrush}" Background="{DynamicResource ComboboxBGBrush}" Width="{DynamicResource TextBoxWidth}" Margin="{DynamicResource ContentItemMargin}"/>
+                    <StackPanel Orientation="Horizontal" Margin="{DynamicResource ContentTiltleMargin}">
+                        <CheckBox x:Name="GeneratePlateFileCheckBox" Style="{DynamicResource CreateCheckboxStyle}" Height="{DynamicResource Step2ItemHeight}" HorizontalAlignment="Left" IsChecked="{Binding Path=IsGeneratePlate, Mode=TwoWay}"/>
+                        <ContentControl Margin="10,3,0,0" VerticalAlignment="Center" Content="{Binding Path=GeneratePlateLabel, Source={StaticResource ResourceKeyStrings}}" Style="{DynamicResource GroupHeaderStyle}" ToolTip="{Binding Path=GeneratePlateToolTip, Source={StaticResource ResourceKeyStrings}}" />                       
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <ContentControl Content="ContentControl" UseLayoutRounding="True" SnapsToDevicePixels="True" HorizontalAlignment="Right" Style="{DynamicResource SplitterControl}" Margin="0,5"/>
+            <StackPanel x:Name="OutputCollectionPane" Grid.Column="1" Margin="20,0,0,0">
+                <Border Background="#FFDDE3ED" CornerRadius="6" Padding="5,2,10,2" HorizontalAlignment="Left">
+                    <TextBlock  Text="{Binding Path=OutputCollectionLabel, Source={StaticResource ResourceKeyStrings}}" Style="{DynamicResource SectionHeaderLabelstyle}" />
+                </Border>
+                <StackPanel Orientation="Vertical" Margin="15,0" HorizontalAlignment="Left">
+                    <ContentControl Content="{Binding Path=FileNameLabel, Source={StaticResource ResourceKeyStrings}}" Style="{DynamicResource GroupHeaderStyle}" ToolTip="{Binding Path=FileNameToolTip, Source={StaticResource ResourceKeyStrings}}" Margin="{DynamicResource ContentTiltleMargin}"/>                   
+                    <TextBox Tag="{Binding Tag,ElementName=OutputFilenameErrorLabel}" x:Name="OutputFileNameCombo" Text="{Binding OutputFileName,Mode=TwoWay}"  MaxLength="50"
+                             Style="{DynamicResource InputTextBoxStyle}" FontSize="{DynamicResource LabelFontsize}" UseLayoutRounding="True" Margin="{DynamicResource ContentItemMargin}" />
+                    <TextBlock x:Name="OutputFilenameErrorLabel" Text="{Binding InvalidOutputFileNameErrorMessage}" Style="{DynamicResource ErrorTBStyle}"  />
+                    <ContentControl Content="{Binding Path=OutputPathLabel, Source={StaticResource ResourceKeyStrings}}" Style="{DynamicResource GroupHeaderStyle}" ToolTip="{Binding Path=OutputPathToolTip, Source={StaticResource ResourceKeyStrings}}" Margin="{DynamicResource ContentTiltleMargin}"/>                   
+                    <StackPanel Orientation="Horizontal" Margin="{DynamicResource ContentItemMargin}">
+                        <TextBox Tag="{Binding Tag,ElementName=OutputFolderPathErrorLabel}" x:Name="OutputFolderPathTxt" Style="{DynamicResource InputTextBoxStyle}" Text="{Binding OutputFolderPath,Mode=TwoWay}" MaxLength="230" />
+                        <Button x:Name="outputImageButton" Margin="7,0,0,0" Style="{DynamicResource BlueImageButton}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click" SourceName="outputImageButton">
+                                    <i:InvokeCommandAction x:Name="outputImage" 
+                                               Command="{Binding OpenOutputImageCommand}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
+                    </StackPanel>
+                    <TextBlock x:Name="OutputFolderPathErrorLabel" Style="{DynamicResource ErrorTBStyle}" Text="{Binding InvalidOutputPathErrorMessage}" />
+                    <ContentControl Content="{Binding Path=CreditsLabel, Source={StaticResource ResourceKeyStrings}}" Style="{DynamicResource GroupHeaderStyle}" ToolTip="{Binding Path=CreditsToolTip, Source={StaticResource ResourceKeyStrings}}" Margin="{DynamicResource ContentTiltleMargin}"/>                   
+                    <TextBox x:Name="CreditsTxt" Text="{Binding Credits,Mode=TwoWay}" AcceptsReturn="True" Tag="MultilineText" Style="{DynamicResource InputTextBoxStyle}" UseLayoutRounding="True" Margin="{DynamicResource ContentItemMargin}" VerticalScrollBarVisibility="Auto" Height="60"/>
+                    <ContentControl Content="{Binding Path=CreditsURLLabel, Source={StaticResource ResourceKeyStrings}}" Style="{DynamicResource GroupHeaderStyle}" ToolTip="{Binding Path=CreditsURLToolTip, Source={StaticResource ResourceKeyStrings}}" Margin="{DynamicResource ContentTiltleMargin}"/>                    
+                    <TextBox x:Name="CreaditsUrlTxt" Text="{Binding CreditsURL,Mode=TwoWay}" Style="{DynamicResource InputTextBoxStyle}" UseLayoutRounding="True" Margin="{DynamicResource ContentItemMargin}"/>
+
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+  
+        <Grid x:Name="ButtonContainer" Grid.Row="4">
+            <Rectangle Opacity=".2" VerticalAlignment="Top" Fill="{DynamicResource ForegroundBlueBrush}" Height="1"/>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="0,0,10,0">
+
+                <StackPanel x:Name="step2BtnGroup" Orientation="Horizontal" >
+                    <Button x:Name="backBtn" Tag="/Resources/Images/Back.png" Content="{Binding Path=OutputBackButton, Source={StaticResource ResourceKeyStrings}}" VerticalAlignment="Center" Height="43" Style="{DynamicResource ImageContentButtonStyle}" d:LayoutOverrides="Width" Margin="0,0,10,0" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click" SourceName="backBtn">
+                                <i:InvokeCommandAction x:Name="backImage" 
+                                               Command="{Binding BackToInputDetailsCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                    <Button x:Name="createBtn" Tag="/Resources/Images/Next.png" Content="{Binding Path=OutputCreateButton, Source={StaticResource ResourceKeyStrings}}" VerticalAlignment="Center" Height="43" Style="{DynamicResource ImageContentButtonStyle}" HorizontalContentAlignment="Right" d:LayoutOverrides="Width" Margin="0,0,10,0" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click" SourceName="createBtn">
+                                <i:InvokeCommandAction x:Name="CreateImageImage" 
+                                               Command="{Binding CreateImageCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

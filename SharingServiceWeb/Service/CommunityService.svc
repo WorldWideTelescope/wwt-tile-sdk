@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Microsoft.Research.Wwt.SharingService.Web.CommunityService" CodeBehind="CommunityService.svc.cs" %>

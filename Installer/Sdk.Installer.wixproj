@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>3.5</ProductVersion>
+    <ProjectGuid>{11885d2c-7a74-4266-8aef-aee370d08d2e}</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>WWTSDK</OutputName>
+    <OutputType>Package</OutputType>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <Name>Sdk.Installer</Name>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Product.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Bitmaps\bannrbmp.bmp" />
+    <Content Include="Bitmaps\dlgbmp.bmp" />
+    <Content Include="Bitmaps\installer.ico" />
+    <Content Include="Bitmaps\WWTSDK.ico" />
+    <Content Include="ChecksAndProperties.wxi" />
+    <Content Include="CommonDefines.wxi" />
+    <Content Include="CoreFiles.wxi" />
+    <Content Include="DeploySharingService.bat" />
+    <Content Include="EULA.rtf" />
+    <Content Include="Help\Bing Maps integration with Tile Service Sample.html" />
+    <Content Include="Help\ColorMap.png" />
+    <Content Include="Help\WorldWide Telescope SDK User Guide.chm" />
+    <Content Include="ReadMe.txt" />
+    <Content Include="SharingService.sln" />
+    <Content Include="SharingService.Web.deploy.cmd" />
+    <Content Include="LcapiSample.sln" />
+    <Content Include="SDK.sln" />
+    <Content Include="SdkUI.wxi" />
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bitmaps\" />
+    <Folder Include="Help" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="en-us.wxl" />
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" />
+  <PropertyGroup>
+    <PostBuildEvent>rmdir "$(SolutionDir)..\..\Temp" /q /s</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>mkdir "$(SolutionDir)..\..\Temp"
+copy "$(ProjectDir)..\Core\Sdk.Core.csproj" "$(SolutionDir)..\..\Temp"
+copy "$(ProjectDir)..\SharingServiceWeb\SharingService.Web.csproj" "$(SolutionDir)..\..\Temp"
+copy "$(ProjectDir)..\Samples\BlueMarbleApp\BlueMarbleApp.csproj" "$(SolutionDir)..\..\Temp"
+copy "$(ProjectDir)..\Samples\Lcapi\LcapiSample.csproj" "$(SolutionDir)..\..\Temp"
+copy "$(ProjectDir)..\Samples\DelineationSample\DelineationSample.csproj" "$(SolutionDir)..\..\Temp"
+copy "$(ProjectDir)..\Samples\SpecificRegionDataSet\SpecificRegionDataSet.csproj" "$(SolutionDir)..\..\Temp"
+copy "$(ProjectDir)..\Samples\WorldDataSet\WorldDataSet.csproj" "$(SolutionDir)..\..\Temp"
+copy "$(ProjectDir)..\TileGenerator\TileGenerator.csproj" "$(SolutionDir)..\..\Temp"
+"$(SolutionDir)..\..\Libs\Internal\RemoveSourceControlBindings.exe" "$(SolutionDir)..\..\Temp"</PreBuildEvent>
+  </PropertyGroup>
+  <!--
+	To modify your build process, add your task inside one of the targets below and uncomment it.
+	Other similar extension points exist, see Wix.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

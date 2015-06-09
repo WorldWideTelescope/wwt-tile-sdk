@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+  <Regions>
+    <Row>
+      <Region name="A1">
+        <ImagePath>Local file path downloaded from http://eoimages.gsfc.nasa.gov/ve//7100/world.topo.bathy.200401.3x21600x21600.A1.jpg</ImagePath>
+      </Region>
+      <Region name="B1">
+        <ImagePath>Local file path downloaded from http://eoimages.gsfc.nasa.gov/ve//7100/world.topo.bathy.200401.3x21600x21600.B1.jpg</ImagePath>
+      </Region>
+      <Region name="C1">
+        <ImagePath>Local file path downloaded from http://eoimages.gsfc.nasa.gov/ve//7100/world.topo.bathy.200401.3x21600x21600.C1.jpg</ImagePath>
+      </Region>
+      <Region name="D1">
+        <ImagePath>Local file path downloaded from http://eoimages.gsfc.nasa.gov/ve//7100/world.topo.bathy.200401.3x21600x21600.D1.jpg</ImagePath>
+      </Region>
+    </Row>
+    <Row>
+      <Region name="A2">
+        <ImagePath>Local file path downloaded from http://eoimages.gsfc.nasa.gov/ve//7100/world.topo.bathy.200401.3x21600x21600.A2.jpg</ImagePath>
+      </Region>
+      <Region name="B2">
+        <ImagePath>Local file path downloaded from http://eoimages.gsfc.nasa.gov/ve//7100/world.topo.bathy.200401.3x21600x21600.B2.jpg</ImagePath>
+      </Region>
+      <Region name="C2">
+        <ImagePath>Local file path downloaded from http://eoimages.gsfc.nasa.gov/ve//7100/world.topo.bathy.200401.3x21600x21600.C2.jpg</ImagePath>
+      </Region>
+      <Region name="D2">
+        <ImagePath>Local file path downloaded from http://eoimages.gsfc.nasa.gov/ve//7100/world.topo.bathy.200401.3x21600x21600.D2.jpg</ImagePath>
+      </Region>
+    </Row>
+  </Regions>
+

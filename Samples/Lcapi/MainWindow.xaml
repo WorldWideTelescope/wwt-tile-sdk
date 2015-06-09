@@ -1,0 +1,140 @@
+﻿<Window x:Class="Microsoft.Research.Wwt.Sdk.Samples.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="LCAPI Sample"  WindowState="Maximized" WindowStartupLocation="CenterScreen" MinWidth="1024" MinHeight="768" >
+    <Window.Resources>
+        <Style x:Key="TreeViewItemStyle" TargetType="{x:Type TreeViewItem}">
+            <Setter Property="IsExpanded" Value="False"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+
+                <GroupBox Header="Navigations Options">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnGetState" Content="Get State" Click="OnGetState"  Width="75" Height="22"  Margin="5"   ></Button>
+                        <Rectangle Width="1" Margin="3" Fill="Gray" Opacity=".2" />
+                        <StackPanel Margin="5" Orientation="Vertical">
+                            <TextBlock Text="Change mode to"/>
+                            <ComboBox Width="125" Margin="0,5,5,5" Height="22" Name="cmbModes" SelectionChanged="OnModeSelected" >
+                                <ComboBoxItem Content="Earth"/>
+                                <ComboBoxItem Content="Sky"/>
+                                <ComboBoxItem Content="Planet"/>
+                                <ComboBoxItem Content="SolarSystem"/>
+                                <ComboBoxItem Content="Panorama"/>
+                            </ComboBox>
+                        </StackPanel>
+                        <Rectangle Width="1" Margin="3" Fill="Gray" Opacity=".2" />
+
+                        <StackPanel Margin="5" Orientation="Vertical">
+                            <Button Name="btnInstant" Margin="2" Height="22" Content="Traverse to New York" Click="OnFlyToTraverse"/>
+                            <Button Name="btnTraverse" Margin="2" Height="22" Content="Jump to New York" Click="OnFlyToInstant"/>
+                        </StackPanel>
+                        <StackPanel Margin="5" Orientation="Vertical">
+                            <Button Margin="2" Height="22" Content="Zoom In" Tag="ZoomIn" Click="OnZoom"/>
+                            <Button  Margin="2" Height="22" Content="Zoom Out" Tag="ZoomOut" Click="OnZoom"/>
+                        </StackPanel>
+                        <StackPanel Margin="5" Orientation="Vertical">
+                            <Button Margin="2" Height="22" Content="Move Up" Tag="Up" Click="OnZoom"/>
+                            <Button  Margin="2" Height="22" Content="Move Down" Tag="Down" Click="OnZoom" />
+                        </StackPanel>
+                        <StackPanel Margin="5" Orientation="Vertical">
+                            <Button Margin="2" Height="22" Content="Move Left" Tag="Left" Click="OnZoom"/>
+                            <Button  Margin="2" Height="22" Content="Move Right" Tag="Right" Click="OnZoom"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="About">
+                    <StackPanel Margin="5" Orientation="Vertical">
+                        <Button Margin="2" Height="22" Content="Get Version" Click="OnGetVersion"/>
+                        <Button  Margin="2" Height="22" Content="Help" Click="OnHelp" />
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+
+
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="260" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <GroupBox Header="Layers" Height="Auto" VerticalAlignment="Stretch">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel>
+                            <GroupBox Header="Common layer operations" Margin="7,0,0,0">
+                                <WrapPanel Margin="5,5,0,0">
+                                    <Button Margin="2" Name="btnRefresh" Content="Refresh Layer List" Width="100" Height="22"  Click="OnRefresh" />
+                                    <Button Name="btnCreateGroup" Margin="2" Content="Create Group" Width="100" Height="22"  Click="OnCreateGroup" />
+                                    <Button  Name="btnCreateLayer" Margin="2" Content="Create Layer" Width="100" Height="22"  Click="OnCreateNewLayer" />
+                                    <Button Name="btnLoadFiles"  Margin="2" Content="Load File"  Width="100" Height="22"  Click="OnLoadFiles" />
+                                </WrapPanel>
+                            </GroupBox>
+                            <GroupBox Header="Operations on a selected layer" Margin="7,0,0,0">
+                                <WrapPanel Margin="5,5,0,0" Orientation="Horizontal" HorizontalAlignment="Left">
+                                    <Button Name="btnOpacity" Content="Get Opacity" Width="100" Height="22" Margin="2" Click="OnGetOpacity" />
+                                    <Button Name="btnProperties" Content="Get Properties" Width="100" Height="22" Margin="2" Click="OnGetLayerProperties" />
+                                    <Button Name="btnSetPushpin" Content="Use Push Pin" Width="100" Height="22" Margin="2" Click="OnSetPushPin"/>
+                                    <Button Name="btnSetMultiProps" Content="Set Properties" Width="100" Height="22" Margin="2" Click="OnSetMultiProperties"/>
+                                    <Button Name="btnActivate" Content="Activate" Width="100" Height="22" Margin="2" Click="OnActivateLayer" />
+                                    <Button Name="btnDelete" Content="Delete" Width="100" Height="22" Margin="2" Click="OnDelete" />
+                                    <Button Name="btnGetLayerData" Content="Get Layer Data" Width="100" Height="22" Margin="2" Click="OnGetLayerData" />
+                                </WrapPanel>
+                            </GroupBox>
+                        </StackPanel>
+                        <GroupBox Margin="5"  Grid.Row="1"  Header="Reference Frame/Layer List" >
+                            <TreeView  Name="layersTree"  ScrollViewer.CanContentScroll="True" BorderThickness="0" BorderBrush="Transparent"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"  
+                                  VerticalAlignment="Stretch" SelectedItemChanged="OnLayerSelected"   />
+                        </GroupBox>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TabControl Name="tabControl" >
+                    <TabItem Header="Request Sent">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Button Name="btnClearOuput" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Height="22" Margin="0,0,0,0" Click="OnClearOutput" />
+                            <TextBox Background="Ivory" Name="txtOutput" Width="Auto" Height="Auto" Grid.Row="1" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" IsReadOnly="True"/>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+
+                <TabControl Grid.Row="1"  Name="responseTabControl"  >
+                    <TabItem VerticalAlignment="Top" Header="Response Received">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Button Name="btnClearOuputResponse" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Height="22" Margin="0,0,0,0" Click="OnClearOutputResponse" />
+                            <TextBox Background="BlanchedAlmond" Name="txtOutputResponse" Width="Auto" Height="Auto" Grid.Row="1" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" IsReadOnly="True"/>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

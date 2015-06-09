@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <!-- Definitions used in this installation package -->
+  <?include CommonDefines.wxi?>
+  <Product Id="$(var.ProductId)" Name="!(loc.ProductName)" Language="!(loc.LCID)" Version="$(var.RTMVersionNumber)" Manufacturer="!(loc.ProductManufacturer)" UpgradeCode="$(var.UpgradeCode)">
+    <Package Id="*" InstallerVersion="200" Compressed="yes" Description="!(loc.PackageDescription)" Comments="!(loc.PackageComments)" Manufacturer="!(loc.ProductManufacturer)" />
+    <Media Id="1" Cabinet="WwtSdk.cab" EmbedCab="yes" />
+    <!-- Launch conditions, properties and registry searches -->
+    <?include ChecksAndProperties.wxi?>
+    <!-- User interface sequence -->
+    <?include SdkUI.wxi?>
+    <!-- Files to be installed -->
+    <?include CoreFiles.wxi?>
+
+    <!-- Silently upgrade older product version -->
+    <InstallExecuteSequence>
+      <RemoveExistingProducts After="InstallInitialize">
+        OLDERVERSIONFOUND
+      </RemoveExistingProducts>
+    </InstallExecuteSequence>
+
+    <!-- Icon reference-->
+    <Icon Id="Installer.ico" SourceFile="Bitmaps\installer.ico" />
+    <Icon Id="WWTSDK.ico" SourceFile="Bitmaps\WWTSDK.ico" />
+    <Icon Id="TileGenerator.ico" SourceFile="..\TileGenerator\TileGenerator.ico" />
+    <Icon Id="LCAPISampleIcon" SourceFile="$(var.ProjectDir)..\Samples\Lcapi\LCAPI.ico"/>
+    <!-- Target directory -->
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <!-- Program Files folder -->
+      <Directory Id="ProgramFilesFolder">
+        <!-- Configurable installation location -->
+        <Directory Id="INSTALLLOCATION" Name="!(loc.SdkInstallationRootFolderName)">
+          <!-- Product files installation folder -->
+          <Directory Id="SdkInstallationFolder" Name="!(loc.SdkInstallationFolderName)">
+            <Directory Id="LicenseFolder" Name="!(loc.LicenseFolderName)" />
+            <Directory Id="LibsFolder" Name="!(loc.LibsFolderName)" >
+              <Directory Id="LibsInternalFolder" Name="!(loc.LibsInternalFolderName)" >
+              </Directory>
+            </Directory>
+            <Directory Id="LCAPISampleFolder" Name="!(loc.LCAPISampleFolderName)">
+              <Directory Id="LCAPISourceCodeFolder" Name="!(loc.LCAPISourceCodeFolderName)">
+                <Directory Id="LCAPISourceCodeLcapiFolder" Name="!(loc.LCAPISourceCodeLcapiFolderName)">
+                  <Directory Id="LCAPISourceCodePropertiesFolder" Name="!(loc.LCAPISourceCodePropertiesFolderName)"></Directory>
+                  <Directory Id="LCAPISourceCodeCommonFolder" Name="!(loc.LCAPISourceCodeCommonFolderName)"></Directory>
+                </Directory>
+              </Directory>
+            </Directory>
+            <Directory Id="SharingServiceRootFolder" Name="!(loc.SharingServiceRootFolderName)" >
+              <Directory Id="SharingServiceSourceCodeFolder" Name="!(loc.SharingServiceSourceCodeFolderName)" >
+              <Directory Id="SharingService.WebFolder" Name="!(loc.SharingService.WebFolderName)">
+                <Directory Id="SharingService.WebAppLocalResourcesFolder" Name="!(loc.SharingService.WebAppLocalResourcesFolderName)" />
+                <Directory Id="SharingService.WebCommonFolder" Name="!(loc.SharingService.WebCommonFolderName)" />
+                <Directory Id="SharingService.WebPropertiesFolder" Name="!(loc.SharingService.WebPropertiesFolderName)" />
+                <Directory Id="SharingService.WebRepositoryFolder" Name="!(loc.SharingService.WebRepositoryFolderName)" />
+                <Directory Id="SharingService.WebResourcesFolder" Name="!(loc.SharingService.WebResourcesFolderName)" />
+                <Directory Id="SharingService.WebServiceFolder" Name="!(loc.SharingService.WebServiceFolderName)" />
+              </Directory>
+              </Directory>
+            </Directory>
+            <Directory Id="ImageTilingSdkFolder" Name="!(loc.ImageTilingSdkFolderName)">
+              <Directory Id="ImageTilingSamplesFolder" Name="!(loc.ImageTilingSamplesFolderName)" />
+              <Directory Id="ImageTilingTileGeneratorFolder" Name="!(loc.ImageTilingTileGeneratorFolderName)" />
+              <Directory Id="SourceCodeFolder" Name="!(loc.SourceCodeFolderName)">
+                <Directory Id="CoreFolder" Name="!(loc.CoreFolderName)">
+                  <Directory Id="CorePropertiesFolder" Name="!(loc.CorePropertiesFolderName)"></Directory>
+                </Directory>
+                <Directory Id="SourceCodeSamplesFolder" Name="!(loc.SourceCodeSamplesFolderName)">
+                  <Directory Id="BlueMarbleAppFolder" Name="!(loc.BlueMarbleAppFolderName)">
+                    <Directory Id="BlueMarbleAppPropertiesFolder" Name="!(loc.BlueMarbleAppPropertiesFolderName)"></Directory>
+                  </Directory>
+                  <Directory Id="SpecificRegionDataSetFolder" Name="!(loc.SpecificRegionDataSetFolderName)">
+                    <Directory Id="SpecificRegionDataSetPropertiesFolder" Name="!(loc.SpecificRegionDataSetPropertiesFolderName)"></Directory>
+                  </Directory>
+                  <Directory Id="WorldDataSetFolder" Name="!(loc.WorldDataSetFolderName)">
+                    <Directory Id="WorldDataSetPropertiesFolder" Name="!(loc.WorldDataSetPropertiesFolderName)"></Directory>
+                    <Directory Id="WorldDataSetColorMapFolder" Name="!(loc.WorldDataSetColorMapFolderName)"></Directory>
+                  </Directory>
+                </Directory>
+                <Directory Id="TileGeneratorFolder" Name="!(loc.TileGeneratorFolderName)">
+                  <Directory Id="TileGeneratorCommonFolder" Name="!(loc.TileGeneratorCommonFolderName)" />
+                  <Directory Id="TileGeneratorPropertiesFolder" Name="!(loc.TileGeneratorPropertiesFolderName)" />
+                  <Directory Id="TileGeneratorResourcesFolder" Name="!(loc.TileGeneratorResourcesFolderName)">
+                    <Directory Id="TileGeneratorResourcesImagesFolder" Name ="!(loc.TileGeneratorResourcesImagesFolderName)" />
+                    <Directory Id="TileGeneratorResourcesStylesFolder" Name="!(loc.TileGeneratorResourcesStylesFolderName)" />
+                  </Directory>
+                  <Directory Id="TileGeneratorViewFolder" Name="!(loc.TileGeneratorViewFolderName)" />
+                  <Directory Id="TileGeneratorViewModelFolder" Name="!(loc.TileGeneratorViewModelFolderName)" />
+                </Directory>
+              </Directory>
+            </Directory>
+            <Directory Id="SphereToasterFolder" Name="!(loc.SphereToasterFolderName)" />
+            <Directory Id="StudyChopperFolder" Name="!(loc.StudyChopperFolderName)" />
+          </Directory>
+          <!-- Product files installation folder end -->
+        </Directory>
+        <!-- Configurable installation location end -->
+        <!-- Start Menu folder (for application shortcuts) -->
+        <Directory Id="ProgramMenuFolder">
+          <!-- Shortcut root folder -->
+          <Directory Id="MicrosoftResearchShortcutFolder" Name="!(loc.MicrosoftResearchShortcutFolderName)">
+            <!-- Shortcut folder -->
+            <Directory Id="WwtSdkShortcutFolder" Name="!(loc.WwtSdkShortcutFolderName)" />
+          </Directory>
+        </Directory>
+        <!-- Start Menu folder end -->
+      </Directory>
+      <!-- Program Files folder end -->
+    </Directory>
+    <!-- Target directory end -->
+    <!-- Feature tree -->
+    <Feature Id="ProductFeature" Title="Sdk.Installer" Level="1">
+      <ComponentGroupRef Id="CoreComponents" />
+      <ComponentGroupRef Id="StartMenuShortcuts" />
+    </Feature>
+    <!-- Reference the UI sequence -->
+    <UIRef Id="SdkUI_InstallDir" />
+  </Product>
+</Wix>

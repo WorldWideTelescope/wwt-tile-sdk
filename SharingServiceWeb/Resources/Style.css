@@ -1,0 +1,117 @@
+@charset "utf-8";
+/* CSS Document */
+html,body{
+    padding:0px;
+    margin:0px;
+    width:100%;
+    min-width:800px;
+    min-height:500px;
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:11px;
+    overflow: auto; 
+}
+.headerBg {
+    width:100%;
+    height:100px; 
+    margin-top:0px; 
+    background-repeat:repeat-x;
+    background-image:url(../Resources/HeaderBG.JPG);
+}
+.infoSpan{
+    color:#666666;
+    padding-right:29px;
+    font-size:11px; 
+}
+.imageStyle
+{
+    width:24px;
+    height:24px;
+    padding-right:7px;
+}
+.errorMessage
+{
+    font-family: Lucida Sans Unicode, Tahoma;
+    padding-top:15px;
+    font-size: 13px
+}
+.imageLinkStyle
+{
+    border: 0px none;
+}
+.infoDiv{
+    padding-top:7px;
+    padding-bottom:7px;
+    padding-left:25px;
+    background-image:url(../Resources/GradientLine.jpg);
+    background-position:bottom;
+    background-repeat:repeat-x;
+}
+.mainTable
+{
+    margin-top:0px;
+    border: none;
+    width:100%;
+}
+.communityDetailsContainer
+{
+    border:none;
+    height:23px;
+    border-bottom-style:solid;
+    border-bottom-color:#E6E6E6; 
+    border-bottom-width:1px;
+    padding:3px;
+}
+.ItemContainerTableStyle{
+    border-style:solid;
+    border-color:#E6E6E6;
+    border-width:1px;
+    width:100%;
+}
+.numberContainertd
+{
+    background-color: #f0f7f9;
+    width:23px; 
+    border:none;
+    vertical-align: middle;
+    text-align: center;
+    padding:3px;
+    border-right-style:solid;
+    border-right-color:#E6E6E6; 
+    border-right-width:1px;
+    border-bottom-style:solid;
+    border-bottom-color:#E6E6E6; 
+    border-bottom-width:1px;
+}
+.numberContainer
+{
+    background-color:#63add6;
+    height:15px;
+    color:#FFF;
+    text-align:center;
+    border-radius:3px;
+}
+.thumbnailContainertd
+{
+    border:none;
+    width:178px;
+    height:47px;
+    vertical-align: middle;
+    border-right-style:solid;
+    border-right-color:#E6E6E6; 
+    border-right-width:1px;
+    border-bottom-style:solid;
+    border-bottom-color:#E6E6E6; 
+    border-bottom-width:1px;
+    padding:3px;
+}
+a{
+    font-size: 12px;
+    color: #6db0c6; 
+    margin-left: 5px
+}
+a:hover{
+    color: #039; 
+}
+a:visted{
+    color: #C30;
+}

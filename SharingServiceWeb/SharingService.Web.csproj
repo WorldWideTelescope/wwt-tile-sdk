@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DA36770C-6060-496C-8E4C-AF4E6228C55E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Research.Wwt.SharingService.Web</RootNamespace>
+    <AssemblyName>Microsoft.Research.Wwt.SharingService.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SccProjectName>%24/WWTE/Dev/Source/SDK/SharingServiceWeb</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>http://vstfpg44:8080/tfs/consolidated_44_tpc</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+    <SilverlightApplicationList>
+    </SilverlightApplicationList>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\..\FxCop_Code_Rules.ruleset</CodeAnalysisRuleSet>
+    <DeployIisAppPath>Default Web Site/SharingService</DeployIisAppPath>
+    <ExcludeApp_Data>true</ExcludeApp_Data>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <DesktopBuildPackageLocation>bin\Package\SharingService.Web.zip</DesktopBuildPackageLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <ExcludeApp_Data>true</ExcludeApp_Data>
+    <DeployIisAppPath>Default Web Site/SharingService</DeployIisAppPath>
+    <DesktopBuildPackageLocation>bin\Package\SharingService.Web.zip</DesktopBuildPackageLocation>
+    <CodeAnalysisRuleSet>..\..\FxCop_Code_Rules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Choose>
+    <When Condition=" Exists('$(ProjectDir)..\..\..\Tile Pyramid SDK\Source Code\Core') ">
+      <ItemGroup>
+        <Reference Include="Microsoft.Research.Wwt.Sdk.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+          <SpecificVersion>False</SpecificVersion>
+          <HintPath>..\..\..\Tile Pyramid SDK\Source Code\Core\bin\$(Configuration)\Microsoft.Research.Wwt.Sdk.Core.dll</HintPath>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition=" Exists('$(ProjectDir)..\Core') ">
+      <ItemGroup>
+        <Reference Include="Microsoft.Research.Wwt.Sdk.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+          <SpecificVersion>False</SpecificVersion>
+          <HintPath>..\Core\bin\$(Configuration)\Microsoft.Research.Wwt.Sdk.Core.dll</HintPath>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CommunityServiceSample.aspx" />
+    <Content Include="Resources\Ascending.PNG" />
+    <Content Include="Resources\ColumnHeaderBG.JPG" />
+    <Content Include="Resources\Descending.PNG" />
+    <Content Include="Resources\DownloadIcon.png" />
+    <Content Include="Resources\DownloadMouseover.png" />
+    <Content Include="Resources\Error.png" />
+    <Content Include="TileServiceSample.aspx" />
+    <Content Include="Resources\Preloader.gif" />
+    <Content Include="Resources\TileStyle.css" />
+    <Content Include="Resources\TileTitle.png" />
+    <Content Include="Resources\CommunityHeaderBG.png" />
+    <Content Include="Resources\DefaultCommunityThumbnail.png" />
+    <Content Include="Resources\DefaultExcelThumbnail.png" />
+    <Content Include="Resources\DefaultFileThumbnail.png" />
+    <Content Include="Resources\DefaultLinkThumbnail.png" />
+    <Content Include="Resources\DefaultTourThumbnail.png" />
+    <Content Include="Resources\DefaultWtmlThumbnail.png" />
+    <Content Include="Resources\DottedLine.jpg" />
+    <Content Include="Resources\GradientLine.jpg" />
+    <Content Include="Resources\HeaderBG.JPG" />
+    <Content Include="Resources\Style.css" />
+    <Content Include="Resources\thumbnail.jpeg" />
+    <Content Include="Resources\Title.png" />
+    <Content Include="Service\TileService.svc" />
+    <Content Include="Service\CommunityService.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\Extensions.cs" />
+    <Compile Include="Common\Folder.cs" />
+    <Compile Include="Common\Place.cs" />
+    <Compile Include="Common\PyramidDetails.cs" />
+    <Compile Include="Common\ErrorHandler.cs" />
+    <Compile Include="Common\Pyramid.cs" />
+    <Compile Include="Common\SignUp.cs" />
+    <Compile Include="Common\Tour.cs" />
+    <Compile Include="CommunityServiceClient.cs" />
+    <Compile Include="CommunityServiceSample.aspx.cs">
+      <DependentUpon>CommunityServiceSample.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommunityServiceSample.aspx.designer.cs">
+      <DependentUpon>CommunityServiceSample.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CommunityFolderCacheDependency.cs" />
+    <Compile Include="Repository\CommunityRepositoryFactory.cs" />
+    <Compile Include="Repository\ICommunityRepository.cs" />
+    <Compile Include="Repository\ITileRepository.cs" />
+    <Compile Include="Repository\LocalCommunityRepository.cs" />
+    <Compile Include="Repository\TileRepositoryFactory.cs" />
+    <Compile Include="Repository\LocalTileRepository.cs" />
+    <Compile Include="Common\Community.cs" />
+    <Compile Include="Common\CommunityDetails.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ITileService.cs" />
+    <Compile Include="Service\ICommunityService.cs" />
+    <Compile Include="Service\TileService.svc.cs">
+      <DependentUpon>TileService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Common\WTMLCollection.cs" />
+    <Compile Include="Service\CommunityService.svc.cs">
+      <DependentUpon>CommunityService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="TileServiceSample.aspx.cs">
+      <DependentUpon>TileServiceSample.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TileServiceSample.aspx.designer.cs">
+      <DependentUpon>TileServiceSample.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TileServiceClient.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\CommunityServiceSample.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\TileServiceSample.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>18079</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

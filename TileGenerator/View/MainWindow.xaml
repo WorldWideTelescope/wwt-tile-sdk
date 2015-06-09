@@ -1,0 +1,78 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+    xmlns:ResourceString="clr-namespace:Microsoft.Research.Wwt.TileGenerator.Properties"
+    xmlns:local="clr-namespace:Microsoft.Research.Wwt.TileGenerator" mc:Ignorable="d"
+    x:Class="Microsoft.Research.Wwt.TileGenerator.MainWindow"
+    x:Name="Window" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+    Title="Tile Generator" 
+    MinWidth="900" MinHeight="720" MaxWidth="900" MaxHeight="720" Width="900" Height="720" VerticalAlignment="Top" HorizontalAlignment="Left"
+    FontFamily="Segoe UI" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
+    <Window.Resources>
+        <ResourceString:Resources x:Key="ResourceKeyStrings"></ResourceString:Resources>
+        <BooleanToVisibilityConverter x:Key="VisibilityConverter"></BooleanToVisibilityConverter>
+    </Window.Resources>
+    <Border BorderBrush="#FF626262" BorderThickness="1">
+        <Border Background="{DynamicResource LightBlueBrush}" ClipToBounds="True" BorderThickness="1,1,1,0">
+            <Border.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB8B8B8" Offset="0"/>
+                    <GradientStop Color="#FFCBEDFB" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+
+            <Grid x:Name="LayoutRoot">
+                <Grid x:Name="BackgroundItemContainer" Opacity="0.5">
+                    <Path Data="M0,0 L769,0 C627.5,89.5 473.5,66 344.5,268.5 215.5,471 114.83333,464.16667 0,562 z" Stretch="Fill">
+                        <Path.Fill>
+                            <LinearGradientBrush EndPoint="0.816,0.75" StartPoint="0.184,0.25">
+                                <GradientStop Offset="0"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Path.Fill>
+                    </Path>
+                    <Rectangle>
+                        <Rectangle.Fill>
+                            <RadialGradientBrush RadiusY="0.969" RadiusX="0.969" Center="0.512,0.965" GradientOrigin="0.512,0.965">
+                                <GradientStop Offset="1"/>
+                                <GradientStop Color="#7FC7E7FB"/>
+                            </RadialGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Grid>
+                <Grid x:Name="ContentGrid" IsEnabled="{Binding InputImageDetails.IsMainWindowEnabled}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="10"/>
+                    </Grid.RowDefinitions>
+                    <ContentControl  MouseLeftButtonDown="OnDragMoveWindow" x:Name="Header" Content="{Binding Path=InputDetailsHeaderLabel, Source={StaticResource ResourceKeyStrings}}" Style="{DynamicResource HeaderBGControl}"/>
+                    <ContentControl x:Name="Footer"  Style="{DynamicResource HeaderBGControl}" Grid.Row="3" Tag="Bottom"/>
+                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,20,0" Orientation="Horizontal">
+                        <Button  ToolTip="{Binding Path=MinimizeTooltip, Source={StaticResource ResourceKeyStrings}}" Width="30" Style="{DynamicResource MinimizeCloseButtonStyle}" Tag="Minimize" Height="22" Click="OnMinimizeClick"/>
+                        <Button ToolTip="{Binding Path=CloseToolTip, Source={StaticResource ResourceKeyStrings}}" x:Name="closeButton" Width="40" Style="{DynamicResource MinimizeCloseButtonStyle}" Tag="Close" Margin="0">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click" SourceName="closeButton">
+                                    <i:InvokeCommandAction x:Name="closeApplication" 
+                                               Command="{Binding CloseCommand}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
+                    </StackPanel>
+
+                    <Grid Grid.Row="1">
+                        <local:OutputDetails x:Name="outputDetails" d:LayoutOverrides="Height" Width="Auto" Visibility="{Binding IsOutputDetailsScreenVisible,Converter={StaticResource VisibilityConverter}}"/>
+                        <local:CreateTileGenerator x:Name="createTileGenerator" d:LayoutOverrides="Width" Visibility="{Binding IsCreateImageScreenVisible,Converter={StaticResource VisibilityConverter}}"/>
+                        <local:InputDetails x:Name="inputDetails" d:LayoutOverrides="Width" Visibility="{Binding IsInputDetailsScreenVisible,Converter={StaticResource VisibilityConverter}}" />
+                    </Grid>
+                </Grid>
+                <Grid Visibility="{Binding InputImageDetails.IsErrorWindowVisible, Converter={StaticResource VisibilityConverter}}" x:Name="errorPopup">
+                    <local:ErrorWindow x:Name="errorWindow" d:LayoutOverrides="Width, Height" Focusable="True" />
+                </Grid>
+            </Grid>
+        </Border>
+    </Border>
+</Window>

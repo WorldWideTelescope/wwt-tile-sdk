@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <!-- Group related components together -->
+  <ComponentGroup Id="StartMenuShortcuts">
+    <ComponentRef Id="HelpPageShortcut" />
+    <ComponentRef Id="LCAPISampleShortcut" />
+    <ComponentRef Id="TileGeneratorShortcut" />
+    <ComponentRef Id="LCAPIDocumentation" />
+    <ComponentRef Id="ShortcutParentDir" />
+  </ComponentGroup>
+
+  <ComponentGroup Id="CoreComponents">
+    <ComponentRef Id="SdkInstallationFolderComponent" />
+    <ComponentRef Id="LCAPISampleFolderComponent"/>
+    <ComponentRef Id="LCAPISourceCodeFolderComponent" />
+    <ComponentRef Id="LCAPISourceCodeLcapiFolderComponent" />
+    <ComponentRef Id="LCAPISourceCodePropertiesFolderComponent" />
+    <ComponentRef Id="LCAPISourceCodeCommonFolderComponent" />
+    <ComponentRef Id="ImageTilingSamplesFolderComponent" />
+    <ComponentRef Id="ImageTilingTileGeneratorFolderComponent" />
+    <ComponentRef Id="LibsFolderComponent" />
+    <ComponentRef Id="LicenseComponent"/>
+    <ComponentRef Id="CoreComponent" />
+    <ComponentRef Id="SourceCodeComponent" />
+    <ComponentRef Id="BlueMarbleAppComponent" />
+    <ComponentRef Id="BlueMarbleAppPropertiesComponent" />
+    <ComponentRef Id="SpecificRegionDataSetComponent" />
+    <ComponentRef Id="SpecificRegionDataSetPropertiesComponent" />
+    <ComponentRef Id="WorldDataSetComponent" />
+    <ComponentRef Id="WorldDataSetPropertiesComponent" />
+    <ComponentRef Id="WorldDataSetColorMapComponent" />
+    <ComponentRef Id="CorePropertiesComponent" />
+    <ComponentRef Id="SharingServiceSourceCodeFolderComponent" />
+    <ComponentRef Id="SharingServiceRootFolderComponent" />
+    <ComponentRef Id="SharingService.WebComponent" />
+    <ComponentRef Id="SharingService.WebAppLocalResourcesComponent" />
+    <ComponentRef Id="SharingService.WebCommonComponent" />
+    <ComponentRef Id="SharingService.WebPropertiesComponent" />
+    <ComponentRef Id="SharingService.WebResourcesComponent" />
+    <ComponentRef Id="SharingService.WebRepositoryComponent" />
+    <ComponentRef Id="SharingService.WebServiceComponent" />
+    <ComponentRef Id="TileGeneratorComponent" />
+    <ComponentRef Id="TileGeneratorCommonComponent"/>
+    <ComponentRef Id="TileGeneratorResourcesImagesComponent"/>
+    <ComponentRef Id="TileGeneratorPropertiesComponent"/>
+    <ComponentRef Id="TileGeneratorResourcesStylesComponent" />
+    <ComponentRef Id="TileGeneratorViewComponent" />
+    <ComponentRef Id="TileGeneratorViewModelComponent"/>
+    <ComponentRef Id="LibsInternalComponent" />
+    <ComponentRef Id="SphereToasterFolderComponent" />
+    <ComponentRef Id="StudyChopperFolderComponent" />
+    <ComponentRef Id="SphereToasterShortCut" />
+    <ComponentRef Id="StudyChopperShortCut" />
+  </ComponentGroup>
+
+  <!-- SdkInstallationFolder Related Files -->
+  <DirectoryRef Id="SdkInstallationFolder">
+    <Component Id="SdkInstallationFolderComponent" Guid="692f85f6-ba54-421e-8eec-5b7b135aa3f4">
+      <File Id="WorldWide_Telescope_SDK_User_Guide.chm" Name="WorldWide Telescope SDK User Guide.chm" Source="$(var.ProjectDir)\Help\WorldWide Telescope SDK User Guide.chm" />
+      <File Id="ReadMe.txt" Name="ReadMe.txt" Source="$(var.ProjectDir)\ReadMe.txt" />
+    </Component>
+  </DirectoryRef>
+
+  <!-- License Related Files -->
+  <DirectoryRef Id="LicenseFolder">
+    <Component Id="LicenseComponent" Guid="715fa329-bebc-4858-870e-e75ab8077d81">
+      <File Id="Eula.rtf" Name="Eula.rtf" Source="Eula.rtf" />
+    </Component>
+  </DirectoryRef>
+
+  <!-- Lib folder files -->
+  <DirectoryRef Id="LibsFolder">
+    <Component Id="LibsFolderComponent" Guid="B6EE5C84-F403-442f-972A-15EB1F5AB008">
+      <File Id="Microsoft.Research.Wwt.Sdk.Core.dll" Name="Microsoft.Research.Wwt.Sdk.Core.dll" Source="$(var.ProjectDir)..\bin\$(var.Configuration)\Microsoft.Research.Wwt.Sdk.Core.dll" />
+    </Component>
+  </DirectoryRef>
+  <DirectoryRef Id="LibsInternalFolder">
+    <Component Id="LibsInternalComponent" Guid="64116849-4786-4fb6-9162-45F03E79353A">
+      <File Id="LIB_Microsoft.Expression.Interactions.dll" Name="Microsoft.Expression.Interactions.dll" Source="$(var.ProjectDir)..\..\..\Libs\Internal\Microsoft.Expression.Interactions.dll" />
+      <File Id="LIB_System.Windows.Interactivity.dll" Name="System.Windows.Interactivity.dll" Source="$(var.ProjectDir)..\..\..\Libs\Internal\System.Windows.Interactivity.dll" />
+      <File Id="LIB_WPFToolkit.Extended.dll" Name="WPFToolkit.Extended.dll" Source="$(var.ProjectDir)..\..\..\Libs\Internal\WPFToolkit.Extended.dll" />
+    </Component>
+  </DirectoryRef>
+
+  <!-- LCAPI Sample folder -->
+  <DirectoryRef Id="LCAPISampleFolder">
+    <Component Id="LCAPISampleFolderComponent" Guid="B03A5A07-7041-4840-8FE2-7ECDA45DD6C4">
+      <File Id="LcapiSample.exe" Name="LcapiSample.exe" Source="$(var.ProjectDir)..\bin\$(var.Configuration)\LcapiSample.exe" />
+      <File Id="LayerData.txt" Name="LayerData.txt" Source="$(var.ProjectDir)..\bin\$(var.Configuration)\LayerData.txt" />
+    </Component>
+  </DirectoryRef>
+  <!-- LCAPI Sample Files -->
+  <DirectoryRef Id="LCAPISourceCodeFolder">
+    <Component Id="LCAPISourceCodeFolderComponent" Guid="B2B99E88-7835-45B3-8E21-92858BB9A0A0">
+      <File Id="Lcapi_LcapiSample.sln" Name="LcapiSample.sln" Source="$(var.ProjectDir)LcapiSample.sln" />
+    </Component>
+  </DirectoryRef>
+  <DirectoryRef Id="LCAPISourceCodeLcapiFolder">
+    <Component Id="LCAPISourceCodeLcapiFolderComponent" Guid="246760ed-02e8-4964-942b-d47a2706ee51">
+      <File Id="Lcapi_App.config" Name="app.config" Source="$(var.ProjectDir)..\Samples\Lcapi\app.config" />
+      <File Id="App.xaml" Name="App.xaml" Source="$(var.ProjectDir)..\Samples\Lcapi\App.xaml" />
+      <File Id="App.xaml.cs" Name="App.xaml.cs" Source="$(var.ProjectDir)..\Samples\Lcapi\App.xaml.cs" />
+      <File Id="LCAPI_LayerData.txt" Name="LayerData.txt" Source="$(var.ProjectDir)..\Samples\Lcapi\LayerData.txt" />
+      <File Id="LayerGroup.xaml" Name="LayerGroup.xaml" Source="$(var.ProjectDir)..\Samples\Lcapi\LayerGroup.xaml" />
+      <File Id="LayerGroup.xaml.cs" Name="LayerGroup.xaml.cs" Source="$(var.ProjectDir)..\Samples\Lcapi\LayerGroup.xaml.cs" />
+      <File Id="MainWindow.xaml" Name="MainWindow.xaml" Source="$(var.ProjectDir)..\Samples\Lcapi\MainWindow.xaml" />
+      <File Id="MainWindow.xaml.cs" Name="MainWindow.xaml.cs" Source="$(var.ProjectDir)..\Samples\Lcapi\MainWindow.xaml.cs" />
+      <File Id="LcapiSample.csproj" Name="LcapiSample.csproj" Source="$(var.ProjectDir)..\..\..\Temp\LcapiSample.csproj" />
+      <File Id="LCAPI.ico" Name="LCAPI.ico" Source="$(var.ProjectDir)..\Samples\Lcapi\LCAPI.ico" />
+    </Component>
+  </DirectoryRef>
+  <DirectoryRef Id="LCAPISourceCodeCommonFolder">
+    <Component Id="LCAPISourceCodeCommonFolderComponent" Guid="d0ab03ca-8e18-404c-8961-3cf4b5d1dbd4">
+      <File Id ="LCAPI_Constants.cs" Name ="Constants.cs" Source ="$(var.ProjectDir)..\Samples\Lcapi\Common\Constants.cs" />
+      <File Id ="CustomException.cs" Name ="CustomException.cs" Source ="$(var.ProjectDir)..\Samples\Lcapi\Common\CustomException.cs" />
+      <File Id ="WWTRequest.cs" Name ="WWTRequest.cs" Source ="$(var.ProjectDir)..\Samples\Lcapi\Common\WWTRequest.cs" />
+    </Component >
+  </DirectoryRef>
+  <DirectoryRef Id="LCAPISourceCodePropertiesFolder">
+    <Component Id="LCAPISourceCodePropertiesFolderComponent" Guid="449e4278-4f32-4d4c-a5b8-272f4045ff2f">
+      <File Id="LCAPI_AssemblyInfo.cs" Name="AssemblyInfo.cs" Source="$(var.ProjectDir)..\Samples\Lcapi\Properties\AssemblyInfo.cs" />
+      <File Id="Resources.Designer.cs" Name="Resources.Designer.cs" Source="$(var.ProjectDir)..\Samples\Lcapi\Properties\Resources.Designer.cs" />
+      <File Id="Resources.resx" Name="Resources.resx" Source="$(var.ProjectDir)..\Samples\Lcapi\Properties\Resources.resx" />
+      <File Id="Settings.Designer.cs" Name="Settings.Designer.cs" Source="$(var.ProjectDir)..\Samples\Lcapi\Properties\Settings.Designer.cs" />
+      <File Id="Settings.settings" Name="Settings.settings" Source="$(var.ProjectDir)..\Samples\Lcapi\Properties\Settings.settings" />
+    </Component>
+  </DirectoryRef>
+
+  <!-- Sphere Toaster Files -->
+  <DirectoryRef Id="SphereToasterFolder">
+    <Component Id="SphereToasterFolderComponent" Guid="AF1E8201-D806-4BFC-A061-9B16EBBDED26">
+      <File Id="SphereToaster.exe" Name="SphereToaster.exe" Source="$(var.ProjectDir)..\..\..\Binaries\SphereToaster.exe" />
+      <File Id="ST_BigPic.dll" Name="BigPic.dll" Source="$(var.ProjectDir)..\..\..\Binaries\BigPic.dll" />
+      <File Id="ST_PlateTools.dll" Name="PlateTools.dll" Source="$(var.ProjectDir)..\..\..\Binaries\PlateTools.dll" />
+      <File Id="ST_OctMap.dll" Name="OctMap.dll" Source="$(var.ProjectDir)..\..\..\Binaries\OctMap.dll" />
+      <File Id="ST_WwtDataUtils.dll" Name="WwtDataUtils.dll" Source="$(var.ProjectDir)..\..\..\Binaries\WwtDataUtils.dll" />
+    </Component>
+  </DirectoryRef>
+
+  <!-- Study Chopper Files -->
+  <DirectoryRef Id="StudyChopperFolder">
+    <Component Id="StudyChopperFolderComponent" Guid="EFB037BC-48F8-4BF7-A024-D6FD951407FA">
+      <File Id="StudyChopper.exe" Name="StudyChopper.exe" Source="$(var.ProjectDir)..\..\..\Binaries\StudyChopper.exe" />
+      <File Id="SC_BigPic.dll" Name="BigPic.dll" Source="$(var.ProjectDir)..\..\..\Binaries\BigPic.dll" />
+      <File Id="SC_PlateTools.dll" Name="PlateTools.dll" Source="$(var.ProjectDir)..\..\..\Binaries\PlateTools.dll" />
+      <File Id="SC_WwtDataUtils.dll" Name="WwtDataUtils.dll" Source="$(var.ProjectDir)..\..\..\Binaries\WwtDataUtils.dll" />
+    </Component>
+  </DirectoryRef>
+
+  <!-- Image Tiling files -->
+  <DirectoryRef Id="ImageTilingSamplesFolder">
+    <Component Id="ImageTilingSamplesFolderComponent" Guid="428DC4D0-4836-4170-B03C-0C88AA8A4FFA">
+      <File Id="BlueMarbleApp.exe" Name="BlueMarbleApp.exe" Source="$(var.ProjectDir)..\bin\$(var.Configuration)\BlueMarbleApp.exe" />
+      <File Id="BlueMarbleApp.exe.config" Name="BlueMarbleApp.exe.config" Source="$(var.ProjectDir)..\bin\$(var.Configuration)\BlueMarbleApp.exe.config" />
+      <File Id="Sample_Microsoft.Research.Wwt.Sdk.Core.dll" Name="Microsoft.Research.Wwt.Sdk.Core.dll" Source="$(var.ProjectDir)..\bin\$(var.Configuration)\Microsoft.Research.Wwt.Sdk.Core.dll" />
+      <File Id="SpecificRegionDataSet.exe" Name="SpecificRegionDataSet.exe" Source="$(var.ProjectDir)..\bin\$(var.Configuration)\SpecificRegionDataSet.exe" />
+      <File Id="SpecificRegionDataSet.exe.config" Name="SpecificRegionDataSet.exe.config" Source="$(var.ProjectDir)..\bin\$(var.Configuration)\SpecificRegionDataSet.exe.config" />
+      <File Id="WorldDataSet.exe" Name="WorldDataSet.exe" Source="$(var.ProjectDir)..\bin\$(var.Configuration)\WorldDataSet.exe" />
+      <File Id="WorldDataSet.exe.config" Name="WorldDataSet.exe.config" Source="$(var.ProjectDir)..\bin\$(var.Configuration)\WorldDataSet.exe.config" />
+      <File Id="Sample_ColorMap.png" Name="ColorMap.png" Source="$(var.ProjectDir)\Help\ColorMap.png" />
+    </Component>
+  </DirectoryRef>
+  <DirectoryRef Id="ImageTilingTileGeneratorFolder">
+    <Component Id="ImageTilingTileGeneratorFolderComponent" Guid="56B831E2-FA64-40fb-AE9E-71B599DD1A62">
+      <File Id="TGL_TileGenerator.exe" Name="TileGenerator.exe" Source="$(var.ProjectDir)..\bin\$(var.Configuration)\TileGenerator.exe" />
+      <File Id="TGL_TileGenerator.exe.config" Name="TileGenerator.exe.config" Source="$(var.ProjectDir)..\bin\$(var.Configuration)\TileGenerator.exe.config" />
+      <File Id="TGL_Microsoft.Expression.Interactions.dll" Name="Microsoft.Expression.Interactions.dll" Source="$(var.ProjectDir)..\..\..\Libs\Internal\System.Windows.Interactivity.dll" />
+      <File Id="TGL_System.Windows.Interactivity.dll" Name="System.Windows.Interactivity.dll" Source="$(var.ProjectDir)..\..\..\Libs\Internal\System.Windows.Interactivity.dll" />
+      <File Id="TGL_Microsoft.Research.Wwt.Sdk.Core.dll" Name="Microsoft.Research.Wwt.Sdk.Core.dll" Source="$(var.ProjectDir)..\bin\$(var.Configuration)\Microsoft.Research.Wwt.Sdk.Core.dll" />
+      <File Id="TGL_WPFToolkit.Extended.dll" Name="WPFToolkit.Extended.dll" Source="$(var.ProjectDir)..\..\..\Libs\Internal\WPFToolkit.Extended.dll" />
+    </Component>
+  </DirectoryRef>
+  <!-- Source Code files -->
+  <DirectoryRef Id="SourceCodeFolder">
+    <Component Id="SourceCodeComponent" Guid="7df51fe9-f7d5-4e9f-bee1-92605a0ca7dd">
+      <File Id="SDK.sln" Name="SDK.sln" Source="$(var.ProjectDir)SDK.sln" />
+    </Component>
+  </DirectoryRef>
+  <!-- Core folder Files -->
+  <DirectoryRef Id="CoreFolder">
+    <Component Id="CoreComponent" Guid="959bb441-232d-4084-b50b-070eb0c9d087">
+      <File Id="Boundary.cs" Name="Boundary.cs" Source="$(var.ProjectDir)..\Core\Boundary.cs" />
+      <File Id="CF_DemPlateFileGenerator.cs" Name="DemPlateFileGenerator.cs" Source="$(var.ProjectDir)..\Core\DemPlateFileGenerator.cs" />
+      <File Id="DemTileSerializer.cs" Name="DemTileSerializer.cs" Source="$(var.ProjectDir)..\Core\DemTileSerializer.cs" />
+      <File Id="IColorMap.cs" Name="IColorMap.cs" Source="$(var.ProjectDir)..\Core\IColorMap.cs" />
+      <File Id="CF_IDEMPlateFileGenerator.cs" Name="IDEMPlateFileGenerator.cs" Source="$(var.ProjectDir)..\Core\IDEMPlateFileGenerator.cs" />
+      <File Id="CF_IDemTileSerializer.cs" Name="IDemTileSerializer.cs" Source="$(var.ProjectDir)..\Core\IDemTileSerializer.cs" />
+      <File Id="CF_IElevationMap.cs" Name="IElevationMap.cs" Source="$(var.ProjectDir)..\Core\IElevationMap.cs" />
+      <File Id="CF_IImageTileSerializer.cs" Name="IImageTileSerializer.cs" Source="$(var.ProjectDir)..\Core\IImageTileSerializer.cs" />
+      <File Id="CF_ImageTileSerializer.cs" Name="ImageTileSerializer.cs" Source="$(var.ProjectDir)..\Core\ImageTileSerializer.cs" />
+      <File Id="CF_IPlateFileGenerator.cs" Name="IPlateFileGenerator.cs" Source="$(var.ProjectDir)..\Core\IPlateFileGenerator.cs" />
+      <File Id="CF_ITileCreator.cs" Name="ITileCreator.cs" Source="$(var.ProjectDir)..\Core\ITileCreator.cs" />
+      <File Id="CF_MercatorDemTileCreator.cs" Name="MercatorDemTileCreator.cs" Source="$(var.ProjectDir)..\Core\MercatorDemTileCreator.cs" />
+      <File Id="CF_MercatorTileCreator.cs" Name="MercatorTileCreator.cs" Source="$(var.ProjectDir)..\Core\MercatorTileCreator.cs" />
+      <File Id="CF_MultipleDemPlateFileGenerator.cs" Name="MultipleDemPlateFileGenerator.cs" Source="$(var.ProjectDir)..\Core\MultipleDemPlateFileGenerator.cs" />
+      <File Id="CF_MultiplePlateFileDetails.cs" Name="MultiplePlateFileDetails.cs" Source="$(var.ProjectDir)..\Core\MultiplePlateFileDetails.cs" />
+      <File Id="CF_MultiplePlateFileGenerator.cs" Name="MultiplePlateFileGenerator.cs" Source="$(var.ProjectDir)..\Core\MultiplePlateFileGenerator.cs" />
+      <File Id="CF_MultiTileCreator.cs" Name="MultiTileCreator.cs" Source="$(var.ProjectDir)..\Core\MultiTileCreator.cs" />
+      <File Id="CF_OctTileMap.cs" Name="OctTileMap.cs" Source="$(var.ProjectDir)..\Core\OctTileMap.cs" />
+      <File Id="CF_PlateFile.cs" Name="PlateFile.cs" Source="$(var.ProjectDir)..\Core\PlateFile.cs" />
+      <File Id="CF_PlateFileGenerator.cs" Name="PlateFileGenerator.cs" Source="$(var.ProjectDir)..\Core\PlateFileGenerator.cs" />
+      <File Id="CF_PlateFileHelper.cs" Name="PlateFileHelper.cs" Source="$(var.ProjectDir)..\Core\PlateFileHelper.cs" />
+      <File Id="CF_Sdk.Core.csproj" Name="Sdk.Core.csproj" Source="$(var.ProjectDir)..\..\..\Temp\Sdk.Core.csproj" />
+      <File Id="CF_Tile.cs" Name="Tile.cs" Source="$(var.ProjectDir)..\Core\Tile.cs" />
+      <File Id="CF_TileCreatorFactory.cs" Name="TileCreatorFactory.cs" Source="$(var.ProjectDir)..\Core\TileCreatorFactory.cs" />
+      <File Id="CF_TileGenerator.cs" Name="TileGenerator.cs" Source="$(var.ProjectDir)..\Core\TileGenerator.cs" />
+      <File Id="CF_TileHelper.cs" Name="TileHelper.cs" Source="$(var.ProjectDir)..\Core\TileHelper.cs" />
+      <File Id="CF_ToastDemTileCreator.cs" Name="ToastDemTileCreator.cs" Source="$(var.ProjectDir)..\Core\ToastDemTileCreator.cs" />
+      <File Id="CF_ToastHelper.cs" Name="ToastHelper.cs" Source="$(var.ProjectDir)..\Core\ToastHelper.cs" />
+      <File Id="CF_ToastTileCreator.cs" Name="ToastTileCreator.cs" Source="$(var.ProjectDir)..\Core\ToastTileCreator.cs" />
+      <File Id="CF_WtmlCollection.cs" Name="WtmlCollection.cs" Source="$(var.ProjectDir)..\Core\WtmlCollection.cs" />
+      <File Id="CF_TileChopper.cs" Name="TileChopper.cs" Source="$(var.ProjectDir)..\Core\TileChopper.cs" />
+      <File Id="CF_Util_3dSupport.cs" Name="3dSupport.cs" Source="$(var.ProjectDir)..\Core\3dSupport.cs" />
+      <File Id="CF_Constants.cs" Name="Constants.cs" Source="$(var.ProjectDir)..\Core\Constants.cs" />
+      <File Id="CF_Enums.cs" Name="Enums.cs" Source="$(var.ProjectDir)..\Core\Enums.cs" />
+      <File Id="CF_Helper.cs" Name="Helper.cs" Source="$(var.ProjectDir)..\Core\Helper.cs" />
+	  <File Id="CF_DataColorMap.cs" Name="DataColorMap.cs" Source="$(var.ProjectDir)..\Core\DataColorMap.cs" />
+	  <File Id="CF_DataGrid.cs" Name="DataGrid.cs" Source="$(var.ProjectDir)..\Core\DataGrid.cs" />
+	  <File Id="CF_EquirectangularGridMap.cs" Name="EquirectangularGridMap.cs" Source="$(var.ProjectDir)..\Core\EquirectangularGridMap.cs" />
+	  <File Id="CF_IGrid.cs" Name="IGrid.cs" Source="$(var.ProjectDir)..\Core\IGrid.cs" />
+	  <File Id="CF_ImageColorMap.cs" Name="ImageColorMap.cs" Source="$(var.ProjectDir)..\Core\ImageColorMap.cs" />
+	  <File Id="CF_ImageGrid.cs" Name="ImageGrid.cs" Source="$(var.ProjectDir)..\Core\ImageGrid.cs" />
+	  <File Id="CF_IProjectionGridMap.cs" Name="IProjectionGridMap.cs" Source="$(var.ProjectDir)..\Core\IProjectionGridMap.cs" />
+	</Component>
+  </DirectoryRef>
+  <!-- Core Properties Folder Files-->
+  <DirectoryRef Id="CorePropertiesFolder">
+    <Component Id="CorePropertiesComponent" Guid="73C3AD13-E6DB-401F-B95F-1BC941951469">
+      <File Id="AssemblyInfo.cs" Name="AssemblyInfo.cs" Source="$(var.ProjectDir)..\Core\Properties\AssemblyInfo.cs" />
+    </Component>
+  </DirectoryRef>
+  <!-- Source code sample Files-->
+  <!-- BlueMarble Sample Files-->
+  <DirectoryRef Id="BlueMarbleAppFolder">
+    <Component Id="BlueMarbleAppComponent" Guid="0af4539f-4812-4b7d-8367-b9ae43835b62">
+      <File Id="bm_App.config" Name="App.Config" Source="$(var.ProjectDir)..\Samples\BlueMarbleApp\App.Config" />
+      <File Id="BlueMarbleApp.csproj" Name="BlueMarbleApp.csproj" Source="$(var.ProjectDir)..\..\..\Temp\BlueMarbleApp.csproj" />
+      <File Id="Input.xml" Name="Input.xml" Source="$(var.ProjectDir)..\Samples\BlueMarbleApp\Input.xml" />
+      <File Id="ProgramBM.cs" Name="Program.cs" Source="$(var.ProjectDir)..\Samples\BlueMarbleApp\Program.cs" />
+    </Component>
+  </DirectoryRef>
+  <DirectoryRef Id="BlueMarbleAppPropertiesFolder">
+    <Component Id="BlueMarbleAppPropertiesComponent" Guid="869fcd52-a9fd-414e-ace1-deeaeb672418">
+      <File Id="bm_AssemblyInfo.cs" Name="AssemblyInfo.cs" Source="$(var.ProjectDir)..\Samples\BlueMarbleApp\Properties\AssemblyInfo.cs" />
+    </Component>
+  </DirectoryRef>
+  <!-- Specific Region DataSet Sample Files -->
+  <DirectoryRef Id="SpecificRegionDataSetFolder">
+    <Component Id="SpecificRegionDataSetComponent" Guid="778cec20-f73c-45d2-9d37-874d30b63955">
+      <File Id="SR_App.config" Name="App.config" Source="$(var.ProjectDir)..\Samples\SpecificRegionDataSet\App.config" />
+      <File Id="SR_Program.cs" Name="Program.cs" Source="$(var.ProjectDir)..\Samples\SpecificRegionDataSet\Program.cs" />
+      <File Id="ShadedReliefColorMap.cs" Name="ShadedReliefColorMap.cs" Source="$(var.ProjectDir)..\Samples\SpecificRegionDataSet\ShadedReliefColorMap.cs" />
+      <File Id="SpecificRegionDataSet.csproj" Name="SpecificRegionDataSet.csproj" Source="$(var.ProjectDir)..\..\..\Temp\SpecificRegionDataSet.csproj" />
+    </Component>
+  </DirectoryRef>
+  <DirectoryRef Id="SpecificRegionDataSetPropertiesFolder">
+    <Component Id="SpecificRegionDataSetPropertiesComponent" Guid="6f66d107-1a11-43d2-ba10-ea381723c338">
+      <File Id="SR_AssemblyInfo.cs" Name="AssemblyInfo.cs" Source="$(var.ProjectDir)..\Samples\SpecificRegionDataSet\Properties\AssemblyInfo.cs" />
+    </Component>
+  </DirectoryRef>
+  <!-- WorldGridDataSet Sample Files -->
+  <DirectoryRef Id="WorldDataSetFolder">
+    <Component Id="WorldDataSetComponent" Guid="c0e40e3d-9370-4502-a8b5-800ce03c146f">
+      <File Id="WD_App.config" Name="App.config" Source="$(var.ProjectDir)..\Samples\WorldDataSet\App.config" />
+      <File Id="Program.cs" Name="Program.cs" Source="$(var.ProjectDir)..\Samples\WorldDataSet\Program.cs" />
+      <File Id="WorldDataSet.csproj" Name="WorldDataSet.csproj" Source="$(var.ProjectDir)..\..\..\Temp\WorldDataSet.csproj" />
+	  <File Id="DataGridDetails.cs" Name="DataGridDetails.cs" Source="$(var.ProjectDir)..\Samples\WorldDataSet\DataGridDetails.cs" />
+	  <File Id="DataGridHelper.cs" Name="DataGridHelper.cs" Source="$(var.ProjectDir)..\Samples\WorldDataSet\DataGridHelper.cs" />
+	</Component>
+  </DirectoryRef>
+  <DirectoryRef Id="WorldDataSetPropertiesFolder">
+    <Component Id="WorldDataSetPropertiesComponent" Guid="b262cd4c-89bb-477b-a136-dd5aea57b2bc">
+      <File Id="WDS_AssemblyInfo.cs" Name="AssemblyInfo.cs" Source="$(var.ProjectDir)..\Samples\WorldDataSet\Properties\AssemblyInfo.cs" />
+    </Component>
+  </DirectoryRef>
+  <DirectoryRef Id="WorldDataSetColorMapFolder">
+    <Component Id="WorldDataSetColorMapComponent" Guid="f64704db-8875-4bb3-96ed-7f76565702ae">
+      <File Id="ColorMap.png" Name="ColorMap.png" Source="$(var.ProjectDir)..\Samples\WorldDataSet\ColorMap\ColorMap.png" />
+    </Component>
+  </DirectoryRef>
+
+  <!-- SharingService SourceCode Folder File -->
+  <DirectoryRef Id="SharingServiceSourceCodeFolder">
+    <Component Id="SharingServiceSourceCodeFolderComponent" Guid="3D4878FD-D5BA-44ED-B61E-BF86BB01E1D2">
+      <File Id="SharingService.sln" Name="SharingService.sln" Source="$(var.ProjectDir)SharingService.sln" />
+    </Component>
+  </DirectoryRef>
+
+  <!-- SharingService Deployment Folder File -->
+  <DirectoryRef Id="SharingServiceRootFolder">
+    <Component Id="SharingServiceRootFolderComponent" Guid="AB9069CF-F4EF-41E1-9404-2E6C21434F06">
+      <File Id="DeploySharingService.bat" Name="DeploySharingService.bat" Source="$(var.ProjectDir)DeploySharingService.bat" />
+      <File Id="SharingService.Web.deploy.cmd" Name="SharingService.Web.deploy.cmd" Source="$(var.ProjectDir)SharingService.Web.deploy.cmd" />
+      <File Id="BingMapsintegrationwithTileServiceSample.html" Name="Bing Maps integration with Tile Service Sample.html" Source="$(var.ProjectDir)\Help\Bing Maps integration with Tile Service Sample.html" />
+    </Component>
+  </DirectoryRef>
+
+  <!-- SharingService.WebFolder Files-->
+  <DirectoryRef Id="SharingService.WebFolder">
+    <Component Id="SharingService.WebComponent" Guid="F9B06067-5B9E-413f-A22C-D4FB6C1C5D58">
+      <File Id="SharingService.Web.csproj" Name="SharingService.Web.csproj" Source="$(var.ProjectDir)..\..\..\Temp\SharingService.Web.csproj"/>
+      <File Id="Web.config" Name="Web.config" Source="$(var.ProjectDir)..\SharingServiceWeb\Web.config"/>
+      <File Id="ISW_GlobalSuppressions.cs" Name="GlobalSuppressions.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\GlobalSuppressions.cs" />
+      <File Id="CommunityServiceClient.cs" Name="CommunityServiceClient.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\CommunityServiceClient.cs" />
+      <File Id="CommunityServiceSample.aspx" Name="CommunityServiceSample.aspx" Source="$(var.ProjectDir)..\SharingServiceWeb\CommunityServiceSample.aspx" />
+      <File Id="CommunityServiceSample.aspx.cs" Name="CommunityServiceSample.aspx.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\CommunityServiceSample.aspx.cs" />
+      <File Id="CommunityServiceSample.aspx.designer.cs" Name="CommunityServiceSample.aspx.designer.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\CommunityServiceSample.aspx.designer.cs" />
+      <File Id="TileServiceClient.cs" Name="TileServiceClient.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\TileServiceClient.cs" />
+      <File Id="TileServiceSample.aspx" Name="TileServiceSample.aspx" Source="$(var.ProjectDir)..\SharingServiceWeb\TileServiceSample.aspx" />
+      <File Id="TileServiceSample.aspx.cs" Name="TileServiceSample.aspx.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\TileServiceSample.aspx.cs" />
+      <File Id="TileServiceSample.aspx.designer.cs" Name="TileServiceSample.aspx.designer.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\TileServiceSample.aspx.designer.cs" />
+    </Component>
+  </DirectoryRef>
+  <!-- SharingService.WebAppLocalResources Folder Files -->
+  <DirectoryRef Id="SharingService.WebAppLocalResourcesFolder" >
+    <Component Id="SharingService.WebAppLocalResourcesComponent" Guid="C8920069-A230-4B18-B3E5-8CE403BBDC69">
+      <File Id="CommunityServiceSample.aspx.resx" Name="CommunityServiceSample.aspx.resx" Source="$(var.ProjectDir)..\SharingServiceWeb\App_LocalResources\CommunityServiceSample.aspx.resx"/>
+      <File Id="TileServiceSample.aspx.resx" Name="TileServiceSample.aspx.resx" Source="$(var.ProjectDir)..\SharingServiceWeb\App_LocalResources\TileServiceSample.aspx.resx"/>
+    </Component>
+  </DirectoryRef>
+  <!-- SharingService.WebCommon Folder Files -->
+  <DirectoryRef Id="SharingService.WebCommonFolder">
+    <Component Id="SharingService.WebCommonComponent" Guid="065CC669-DF56-4A1E-9BC5-870265CDF248">
+      <File Id="CommonConstants.cs" Name="Constants.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Common\Constants.cs" />
+      <File Id="ErrorHandler.cs" Name="ErrorHandler.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Common\ErrorHandler.cs" />
+      <File Id="Pyramid.cs" Name="Pyramid.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Common\Pyramid.cs" />
+      <File Id="PyramidDetails.cs" Name="PyramidDetails.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Common\PyramidDetails.cs" />
+      <File Id="WTMLCollection.cs" Name="WTMLCollection.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Common\WTMLCollection.cs" />
+      <File Id="Community.cs" Name="Community.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Common\Community.cs" />
+      <File Id="CommunityDetails.cs" Name="CommunityDetails.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Common\CommunityDetails.cs" />
+      <File Id="Extensions.cs" Name="Extensions.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Common\Extensions.cs" />
+      <File Id="Folder.cs" Name="Folder.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Common\Folder.cs" />
+      <File Id="Place.cs" Name="Place.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Common\Place.cs" />
+      <File Id="SignUp.cs" Name="SignUp.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Common\SignUp.cs" />
+      <File Id="Tour.cs" Name="Tour.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Common\Tour.cs" />
+    </Component>
+  </DirectoryRef>
+  <!-- SharingService.WebProperties Folder Files -->
+  <DirectoryRef Id="SharingService.WebPropertiesFolder" >
+    <Component Id="SharingService.WebPropertiesComponent" Guid="2BDC120E-CE4C-42ce-B3F1-42DBE4E2F38A">
+      <File Id="ISW_AssemblyInfo.cs" Name="AssemblyInfo.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Properties\AssemblyInfo.cs" />
+      <File Id="ISW_Resources.resx" Name="Resources.resx" Source="$(var.ProjectDir)..\SharingServiceWeb\Properties\Resources.resx" />
+      <File Id="ISW_Resources.Designer.cs" Name="Resources.Designer.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Properties\Resources.Designer.cs" />
+    </Component>
+  </DirectoryRef>
+  <!-- SharingService.WebResources Folder Files -->
+  <DirectoryRef Id="SharingService.WebResourcesFolder" >
+    <Component Id="SharingService.WebResourcesComponent" Guid="3EFA1742-51A5-4550-A291-D9988D895C49">
+      <File Id="thumbnail.jpeg" Name="thumbnail.jpeg" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\thumbnail.jpeg"/>
+      <File Id="Ascending.PNG" Name="Ascending.PNG" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\Ascending.PNG"/>
+      <File Id="ColumnHeaderBG.JPG" Name="ColumnHeaderBG.JPG" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\ColumnHeaderBG.JPG"/>
+      <File Id="Descending.PNG" Name="Descending.PNG" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\Descending.PNG"/>
+      <File Id="DownloadIcon.png" Name="DownloadIcon.png" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\DownloadIcon.png"/>
+      <File Id="DownloadMouseover.png" Name="DownloadMouseover.png" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\DownloadMouseover.png"/>
+      <File Id="Preloader.gif" Name="Preloader.gif" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\Preloader.gif"/>
+      <File Id="TileTitle.png" Name="TileTitle.png" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\TileTitle.png"/>
+      <File Id="CommunityHeaderBG.png" Name="CommunityHeaderBG.png" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\CommunityHeaderBG.png"/>
+      <File Id="DefaultCommunityThumbnail.png" Name="DefaultCommunityThumbnail.png" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\DefaultCommunityThumbnail.png"/>
+      <File Id="DefaultExcelThumbnail.png" Name="DefaultExcelThumbnail.png" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\DefaultExcelThumbnail.png"/>
+      <File Id="DefaultFileThumbnail.png" Name="DefaultFileThumbnail.png" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\DefaultFileThumbnail.png"/>
+      <File Id="DefaultLinkThumbnail.png" Name="DefaultLinkThumbnail.png" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\DefaultLinkThumbnail.png"/>
+      <File Id="DefaultTourThumbnail.png" Name="DefaultTourThumbnail.png" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\DefaultTourThumbnail.png"/>
+      <File Id="DefaultWtmlThumbnail.png" Name="DefaultWtmlThumbnail.png" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\DefaultWtmlThumbnail.png"/>
+      <File Id="DottedLine.jpg" Name="DottedLine.jpg" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\DottedLine.jpg"/>
+      <File Id="GradientLine.jpg" Name="GradientLine.jpg" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\GradientLine.jpg"/>
+      <File Id="HeaderBG.JPG" Name="HeaderBG.JPG" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\HeaderBG.JPG"/>
+      <File Id="TileStyle.css" Name="TileStyle.css" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\TileStyle.css"/>
+      <File Id="Style.css" Name="Style.css" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\Style.css"/>
+      <File Id="Title.png" Name="Title.png" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\Title.png"/>
+      <File Id="Error.png" Name="Error.png" Source="$(var.ProjectDir)..\SharingServiceWeb\Resources\Error.png"/>
+    </Component>
+  </DirectoryRef>
+  <!-- SharingService.WebRepository Folder Files -->
+  <DirectoryRef Id="SharingService.WebRepositoryFolder">
+    <Component Id="SharingService.WebRepositoryComponent" Guid="28BBC2FF-B8AD-42ae-9A8E-633F03D72B72">
+      <File Id="ITileRepository.cs" Name="ITileRepository.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Repository\ITileRepository.cs" />
+      <File Id="LocalTileRepository.cs" Name="LocalTileRepository.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Repository\LocalTileRepository.cs" />
+      <File Id="TileRepositoryFactory.cs" Name="TileRepositoryFactory.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Repository\TileRepositoryFactory.cs" />
+      <File Id="CommunityRepositoryFactory.cs" Name="CommunityRepositoryFactory.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Repository\CommunityRepositoryFactory.cs" />
+      <File Id="ICommunityRepository.cs" Name="ICommunityRepository.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Repository\ICommunityRepository.cs" />
+      <File Id="LocalCommunityRepository.cs" Name="LocalCommunityRepository.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Repository\LocalCommunityRepository.cs" />
+      <File Id="CommunityFolderCacheDependency.cs" Name="CommunityFolderCacheDependency.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Repository\CommunityFolderCacheDependency.cs" />
+    </Component>
+  </DirectoryRef>
+  <!-- SharingService.WebService Folder Files -->
+  <DirectoryRef Id="SharingService.WebServiceFolder">
+    <Component Id="SharingService.WebServiceComponent" Guid="2290DF99-7712-4938-8B99-29EA65BA20BE">
+      <File Id="ITileService.cs" Name="ITileService.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Service\ITileService.cs" />
+      <File Id="TileService.svc.cs" Name="TileService.svc.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Service\TileService.svc.cs" />
+      <File Id="TileService.svc" Name="TileService.svc" Source="$(var.ProjectDir)..\SharingServiceWeb\Service\TileService.svc" />
+      <File Id="CommunityService.svc" Name="CommunityService.svc" Source="$(var.ProjectDir)..\SharingServiceWeb\Service\CommunityService.svc" />
+      <File Id="CommunityService.svc.cs" Name="CommunityService.svc.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Service\CommunityService.svc.cs" />
+      <File Id="ICommunityService.cs" Name="ICommunityService.cs" Source="$(var.ProjectDir)..\SharingServiceWeb\Service\ICommunityService.cs" />
+    </Component>
+  </DirectoryRef>
+  <!-- TileGenerator Folder Files -->
+  <DirectoryRef Id="TileGeneratorFolder">
+    <Component Id="TileGeneratorComponent" Guid="F1E4CA7A-BA1C-4951-A1D6-D5C2745ABCD6">
+      <File Id="TG_TileGenerator.csproj" Name="TileGenerator.csproj" Source="$(var.ProjectDir)..\..\..\Temp\TileGenerator.csproj" />
+      <File Id="TG_SDKController.cs" Name="SDKController.cs" Source="$(var.ProjectDir)..\TileGenerator\SDKController.cs" />
+      <File Id="TG_ImagePyramidDetails.cs" Name="ImagePyramidDetails.cs" Source="$(var.ProjectDir)..\TileGenerator\ImagePyramidDetails.cs" />
+      <File Id="TG_App.xaml" Name="App.xaml" Source="$(var.ProjectDir)..\TileGenerator\App.xaml" />
+      <File Id="TG_App.xaml.cs" Name="App.xaml.cs" Source="$(var.ProjectDir)..\TileGenerator\App.xaml.cs" />
+      <File Id="TG_app.config" Name="app.config" Source="$(var.ProjectDir)..\TileGenerator\app.config" />
+      <File Id="TG_ErrorEventArgs.cs" Name="ErrorEventArgs.cs" Source="$(var.ProjectDir)..\TileGenerator\ErrorEventArgs.cs" />
+      <File Id="TG_NotifyEventArgs.cs" Name="NotifyEventArgs.cs" Source="$(var.ProjectDir)..\TileGenerator\NotifyEventArgs.cs" />
+      <File Id="TG_TileGenerator.ico" Name="TileGenerator.ico" Source="$(var.ProjectDir)..\TileGenerator\TileGenerator.ico" />
+    </Component>
+  </DirectoryRef>
+  <!-- TileGenerator Common Folder Files -->
+  <DirectoryRef Id="TileGeneratorCommonFolder">
+    <Component Id="TileGeneratorCommonComponent" Guid="79276FD0-4F87-45db-9F9C-F375BB525F08">
+      <File Id="TG_Constants.cs" Name="Constants.cs" Source="$(var.ProjectDir)..\TileGenerator\Common\Constants.cs" />
+      <File Id="TG_Enum.cs" Name="Enum.cs" Source="$(var.ProjectDir)..\TileGenerator\Common\Enum.cs" />
+      <File Id="TG_EventHelper.cs" Name="EventHelper.cs" Source="$(var.ProjectDir)..\TileGenerator\Common\EventHelper.cs" />
+      <File Id="TG_Logger.cs" Name="Logger.cs" Source="$(var.ProjectDir)..\TileGenerator\Common\Logger.cs" />
+      <File Id="TG_PropertyChangeBase.cs" Name="PropertyChangeBase.cs" Source="$(var.ProjectDir)..\TileGenerator\Common\PropertyChangeBase.cs" />
+      <File Id="TG_RelayCommand.cs" Name="RelayCommand.cs" Source="$(var.ProjectDir)..\TileGenerator\Common\RelayCommand.cs" />
+      <File Id="TG_AlphabeticalComparer.cs" Name="AlphabeticalComparer.cs" Source="$(var.ProjectDir)..\TileGenerator\Common\AlphabeticalComparer.cs" />
+    </Component>
+  </DirectoryRef>
+  <!-- TileGenerator Properties Folder Files -->
+  <DirectoryRef Id="TileGeneratorPropertiesFolder">
+    <Component Id="TileGeneratorPropertiesComponent" Guid="D61F26E3-6797-477a-BB35-22767C5B65A2">
+      <File Id="TG_AssemblyInfo.cs" Name="AssemblyInfo.cs" Source="$(var.ProjectDir)..\TileGenerator\Properties\AssemblyInfo.cs" />
+      <File Id="TG_Resources.Designer.cs" Name="Resources.Designer.cs" Source="$(var.ProjectDir)..\TileGenerator\Properties\Resources.Designer.cs" />
+      <File Id="TG_Resources.resx" Name="Resources.resx" Source="$(var.ProjectDir)..\TileGenerator\Properties\Resources.resx" />
+    </Component>
+  </DirectoryRef>
+  <!-- TileGenerator Resources Images Folder Files -->
+  <DirectoryRef Id="TileGeneratorResourcesImagesFolder">
+    <Component Id="TileGeneratorResourcesImagesComponent" Guid="9C298EED-6E58-4404-AD00-8CBD877EEF6E">
+      <File Id="TG_Back.png" Name="Back.png" Source="$(var.ProjectDir)..\TileGenerator\Resources\Images\Back.png" />
+      <File Id="TG_Cancel.png" Name="Cancel.png" Source="$(var.ProjectDir)..\TileGenerator\Resources\Images\Cancel.png" />
+      <File Id="TG_Close.png" Name="Close.png" Source="$(var.ProjectDir)..\TileGenerator\Resources\Images\Close.png" />
+      <File Id="TG_Create.png" Name="Create.png" Source="$(var.ProjectDir)..\TileGenerator\Resources\Images\Create.png" />
+      <File Id="TG_Dots.png" Name="Dots.png" Source="$(var.ProjectDir)..\TileGenerator\Resources\Images\Dots.png" />
+      <File Id="TG_Folder.png" Name ="Folder.png" Source="$(var.ProjectDir)..\TileGenerator\Resources\Images\Folder.png" />
+      <File Id="TG_Next.png" Name="Next.png" Source="$(var.ProjectDir)..\TileGenerator\Resources\Images\Next.png" />
+      <File Id="TG_OpenFolderLocation.png" Name="OpenFolderLocation.png" Source="$(var.ProjectDir)..\TileGenerator\Resources\Images\OpenFolderLocation.png" />
+      <File Id="TG_Reset" Name="Reset.png" Source="$(var.ProjectDir)..\TileGenerator\Resources\Images\Reset.png" />
+      <File Id="TG_Restart" Name="Restart.png" Source="$(var.ProjectDir)..\TileGenerator\Resources\Images\Restart.png" />
+      <File Id="TG_Tick" Name="Tick.png" Source="$(var.ProjectDir)..\TileGenerator\Resources\Images\Tick.png" />
+      <File Id="TG_Error" Name="Error.png" Source="$(var.ProjectDir)..\TileGenerator\Resources\Images\Error.png" />
+      <File Id="TG_Success" Name="Success.png" Source="$(var.ProjectDir)..\TileGenerator\Resources\Images\Success.png" />
+      <File Id="TG_TileGeneratorLogo" Name="TileGeneratorLogo.png" Source="$(var.ProjectDir)..\TileGenerator\Resources\Images\TileGeneratorLogo.png" />
+    </Component>
+  </DirectoryRef>
+  <!-- TileGenerator Resources Styles Folder Files -->
+  <DirectoryRef Id="TileGeneratorResourcesStylesFolder">
+    <Component Id="TileGeneratorResourcesStylesComponent" Guid="AFC8008D-7F92-4c3c-8783-B7ACB69E440E">
+      <File Id="TG_Styles.xaml" Name="Styles.xaml" Source="$(var.ProjectDir)..\TileGenerator\Resources\Styles\Styles.xaml" />
+    </Component>
+  </DirectoryRef>
+  <!-- TileGenerator View Folder Files -->
+  <DirectoryRef Id="TileGeneratorViewFolder">
+    <Component Id="TileGeneratorViewComponent" Guid="6569DA01-642D-4081-831C-D817A88F1F43">
+      <File Id="TG_CreateTileGenerator.xaml" Name="CreateTileGenerator.xaml" Source="$(var.ProjectDir)..\TileGenerator\View\CreateTileGenerator.xaml" />
+      <File Id="TG_CreateTileGenerator.xaml.cs" Name="CreateTileGenerator.xaml.cs" Source="$(var.ProjectDir)..\TileGenerator\View\CreateTileGenerator.xaml.cs" />
+      <File Id="TG_ErrorWindow.xaml" Name="ErrorWindow.xaml" Source="$(var.ProjectDir)..\TileGenerator\View\ErrorWindow.xaml" />
+      <File Id="TG_ErrorWindow.xaml.cs" Name="ErrorWindow.xaml.cs" Source="$(var.ProjectDir)..\TileGenerator\View\ErrorWindow.xaml.cs" />
+      <File Id="TG_InputDetails.xaml.cs" Name="InputDetails.xaml.cs" Source="$(var.ProjectDir)..\TileGenerator\View\InputDetails.xaml.cs" />
+      <File Id="TG_InputDetails.xaml" Name="InputDetails.xaml" Source="$(var.ProjectDir)..\TileGenerator\View\InputDetails.xaml" />
+      <File Id="TG_MainWindow.xaml" Name="MainWindow.xaml" Source="$(var.ProjectDir)..\TileGenerator\View\MainWindow.xaml" />
+      <File Id="TG_MainWindow.xaml.cs" Name="MainWindow.xaml.cs" Source="$(var.ProjectDir)..\TileGenerator\View\MainWindow.xaml.cs" />
+      <File Id="TG_OutputDetails.xaml" Name="OutputDetails.xaml" Source="$(var.ProjectDir)..\TileGenerator\View\OutputDetails.xaml" />
+      <File Id="TG_OutputDetails.xaml.cs" Name="OutputDetails.xaml.cs" Source="$(var.ProjectDir)..\TileGenerator\View\OutputDetails.xaml.cs" />
+    </Component>
+  </DirectoryRef>
+  <!-- TileGenerator ViewModel Folder Files -->
+  <DirectoryRef Id="TileGeneratorViewModelFolder">
+    <Component Id ="TileGeneratorViewModelComponent" Guid="557D0DA4-EE27-40a9-8FD3-560617B81F1F">
+      <File Id="TG_InputImageDetailsViewModel.cs" Name="InputImageDetailsViewModel.cs" Source="$(var.ProjectDir)..\TileGenerator\ViewModel\InputImageDetailsViewModel.cs" />
+      <File Id="TG_TileGeneratorViewModel.cs" Name="TileGeneratorViewModel.cs" Source="$(var.ProjectDir)..\TileGenerator\ViewModel\TileGeneratorViewModel.cs" />
+    </Component>
+  </DirectoryRef>
+
+  <!-- Application shortcuts -->
+  <DirectoryRef Id="WwtSdkShortcutFolder">
+    <Component Id="HelpPageShortcut" Guid="2E647116-EE3C-4AF4-ABC9-408AB1210DDB">
+      <Shortcut Id="HelpPageShortcut" Name="!(loc.HelpPage)" Target="[SdkInstallationFolder]\WorldWide Telescope SDK User Guide.chm" WorkingDirectory="ProductFolder" />
+      <RemoveFolder Id="WwtSdkShortcutFolder" On="uninstall" />
+      <RegistryValue Root="HKCU" Key="Software\Microsoft\!(loc.ProductManufacturer)\!(loc.ProductName)" Name="helpShortcut" Type="integer" Value="1" KeyPath="yes" />
+    </Component>
+    <Component Id="LCAPISampleShortcut" Guid="E824B9AF-67ED-498a-9789-2B6E40E7AAB3">
+      <Shortcut Id="LCAPISampleShortcut" Name="!(loc.LCAPISampleExe)" Target="[LCAPISampleFolder]\LcapiSample.exe" Icon="LCAPISampleIcon" WorkingDirectory="ProductFolder" />
+      <RegistryValue Root="HKCU" Key="Software\Microsoft\!(loc.ProductManufacturer)\!(loc.ProductName)" Name="lcapiSampleShortcut" Type="integer" Value="1" KeyPath="yes" />
+    </Component>
+    <Component Id="TileGeneratorShortcut" Guid="6FB53546-1A1A-4992-B069-9C62B1E82C56">
+      <Shortcut Id="TileGeneratorShortcut" Name="!(loc.TileGeneratorExe)" Target="[ImageTilingTileGeneratorFolder]\TileGenerator.exe" Icon="TileGenerator.ico" WorkingDirectory="ProductFolder"/>
+      <RegistryValue Root="HKCU" Key="Software\Microsoft\!(loc.ProductManufacturer)\!(loc.ProductName)" Name="tileGeneratorShortcut" Type="integer" Value="1" KeyPath="yes" />
+    </Component>
+    <Component Id="LCAPIDocumentation" Guid="CB80A6CE-4926-4e97-B6B6-C08DBF50737D">
+      <util:InternetShortcut Id="LCAPIDocumentation" Name="!(loc.LCAPIDoc)" Target="[LCAPIHelpUrl]" Type="url" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"/>
+      <RegistryValue Root="HKCU" Key="Software\Microsoft\!(loc.ProductManufacturer)\!(loc.ProductName)" Name="lcapiDocShortcut" Type="integer" Value="1" KeyPath="yes" />
+    </Component>
+    <Component Id="SphereToasterShortCut" Guid="F0B4AB1E-C5D2-4EFE-8F3C-1FF03B2FC217">
+      <Shortcut Id="SphereToasterShortCut" Name="!(loc.SphereToaster)" Target="[SphereToasterFolder]\SphereToaster.exe" Icon="Installer.ico" WorkingDirectory="ProductFolder" />
+      <RegistryValue Root="HKCU" Key="Software\Microsoft\!(loc.ProductManufacturer)\!(loc.ProductName)" Name="SphereToasterShortCutName" Type="integer" Value="1" KeyPath="yes" />
+    </Component>
+    <Component Id="StudyChopperShortCut" Guid="E4635313-062F-4E05-ADAD-80E9168ED031">
+      <Shortcut Id="StudyChopperShortCut" Name="!(loc.StudyChopper)" Target="[StudyChopperFolder]\StudyChopper.exe" Icon="Installer.ico" WorkingDirectory="ProductFolder" />
+      <RegistryValue Root="HKCU" Key="Software\Microsoft\!(loc.ProductManufacturer)\!(loc.ProductName)" Name="StudyChopperShortCutName" Type="integer" Value="1" KeyPath="yes" />
+    </Component>
+  </DirectoryRef>
+  <!-- top level Start Menu shortcut folder -->
+  <DirectoryRef Id="MicrosoftResearchShortcutFolder">
+    <Component Id="ShortcutParentDir" Guid="ECDD6178-5E8A-4CE8-81D5-CCE60F045604">
+      <RemoveFolder Id="MicrosoftResearchShortcutFolder" On="uninstall" />
+      <RegistryValue Root="HKCU" Key="Software\Microsoft\!(loc.ProductManufacturer)\!(loc.ProductName)" Name="shortcutParentDir" Type="integer" Value="1" KeyPath="yes" />
+    </Component>
+  </DirectoryRef>
+  <!-- Application shortcuts end -->
+</Include>

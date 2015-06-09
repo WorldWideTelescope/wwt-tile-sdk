@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <!-- The platform-dependent root registry key -->
+  <?if $(var.Platform) = x86 ?>
+  <?define RootRegistryKey="Software\Microsoft"?>
+  <?else ?>
+  <?define RootRegistryKey="Software\wow6432node\Microsoft"?>
+  <?endif ?>
+  
+  <!--Bitmaps-->
+  <?define bannerBmp="$(var.ProjectDir)Bitmaps\bannrbmp.bmp"?>
+  <?define dialogBmp="$(var.ProjectDir)Bitmaps\dlgbmp.bmp"?>
+
+  <!-- Product version number -->
+  <?define RTMVersionNumber="1.0.3.0"?>
+  
+  <?define ProductId="A11509B4-38B4-42A8-930D-5549BCF789D3"?>
+  <?define UpgradeCode="A8B3D723-5C92-4C3b-84E2-C4652B4C25A6"?>
+</Include>

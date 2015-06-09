@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <!--Install for all users-->
+  <Property Id="ALLUSERS">1</Property>
+
+  <!-- To allow all properties to be passed from the UI phase to execution phase in the installer-->
+  <Property Id="EnableUserControl">1</Property>
+
+  <!--Detect other versions of the product for Upgrade support-->
+  <Upgrade Id="$(var.UpgradeCode)">
+    <!-- Check for older version -->
+    <UpgradeVersion Maximum="$(var.RTMVersionNumber)" IncludeMaximum="no" MigrateFeatures="yes" Property="OLDERVERSIONFOUND"/>
+    <!-- Check for newer version -->
+    <UpgradeVersion Minimum="$(var.RTMVersionNumber)" IncludeMinimum="no" OnlyDetect="yes" Property="NEWERVERSIONFOUND"/>
+  </Upgrade>
+
+  <!-- Launch Conditions -->
+  <!-- Prevent installation if newer version found -->
+  <Condition Message='!(loc.NewerVersionFound)'>
+    NOT NEWERVERSIONFOUND
+  </Condition>
+
+  <!--Admin required-->
+  <Condition Message="!(loc.MustRunPrivileged)">
+    Privileged
+  </Condition>
+  
+  <!--.NET Framework required-->
+  <Condition Message="!(loc.NetFrameworkMissing)">
+    NETFRAMEWORK40FULL
+  </Condition>
+
+  <!-- .NET Framework 4.0 check -->
+  <Property Id="NETFRAMEWORK40FULL">
+    <RegistrySearch Id="RegistrySearchNET40" Root="HKLM" Key="$(var.RootRegistryKey)\NET Framework Setup\NDP\v4\Full" Name="Install" Type="raw"></RegistrySearch>
+  </Property>
+
+  <!-- The license agreement document -->
+  <WixVariable Id="WixUILicenseRtf" Value="EULA.rtf" />
+
+  <!-- Override the default bitmaps displayed -->
+  <WixVariable Id="WixUIBannerBmp" Value="$(var.bannerBmp)"/>
+  <WixVariable Id="WixUIDialogBmp" Value="$(var.dialogBmp)"/>
+
+  <!--Add/Remove Programs Entries -->
+  <Property Id="ARPHELPLINK">!(loc.ARPHELPLINK)</Property>
+  <Property Id="ARPURLINFOABOUT">!(loc.ARPURLINFOABOUT)</Property>  
+  <Property Id="ARPNOMODIFY">1</Property>
+  
+  <!-- Icon to be displayed in Add/Remove Programs -->
+  <Property Id="ARPPRODUCTICON">!(loc.ARPPRODUCTICON)</Property>
+
+  <!-- Location displayed in the installation path selection dialog -->
+  <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
+
+  <Property Id="LCAPIHelpUrl" Value="http://www.worldwidetelescope.org/Docs/WorldWideTelescope_lcapi.html" />
+</Include>

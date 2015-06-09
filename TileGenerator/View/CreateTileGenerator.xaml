@@ -1,0 +1,137 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:ResourceString="clr-namespace:Microsoft.Research.Wwt.TileGenerator.Properties"
+    mc:Ignorable="d"
+    x:Class="Microsoft.Research.Wwt.TileGenerator.CreateTileGenerator"
+    x:Name="UserControl"
+    d:DesignWidth="640" d:DesignHeight="480" FontFamily="Myriad Pro">
+    
+    <UserControl.Resources>
+        <ResourceString:Resources x:Key="ResourceKeyStrings"></ResourceString:Resources>
+        <BooleanToVisibilityConverter x:Key="VisibilityConverter"></BooleanToVisibilityConverter>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Margin="20,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <TextBlock  Text="{Binding Path=CreateTileGeneratorLabel, Source={StaticResource ResourceKeyStrings}}" Margin="{DynamicResource TopTwentyMargin}" Style="{DynamicResource SteptitleStyle}"/>
+        <Grid Grid.Row="2" Margin="{DynamicResource TopTwentyMargin}" >
+            <StackPanel>
+                <Grid Margin="0,0,20,0" VerticalAlignment="Bottom">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding Path=ProgressUpdateLabel, Source={StaticResource ResourceKeyStrings}}" Style="{DynamicResource SectionHeaderLabelstyle}" d:LayoutOverrides="Height" Margin="{DynamicResource TopTwentyMargin}"/>
+                  
+                        <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal"   d:LayoutOverrides="Height"  VerticalAlignment="Bottom" Margin="5,0,20,0" >
+                        <TextBlock Text="{Binding Path=TimeRemainingLabel, Source={StaticResource ResourceKeyStrings}}" Foreground="#FF7C7C7C" Grid.Column="0" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="TimeRemainingLabel" Text="{Binding Path=TotalTimeRemaining}" Foreground="{DynamicResource HeaderBlueBrush}"  VerticalAlignment="Center" Margin="5,0,0,0" Visibility="Visible"/>
+                       
+                        <StackPanel  VerticalAlignment="Center" Orientation="Horizontal"  HorizontalAlignment="Left" d:LayoutOverrides="Height" Grid.Column="1"  Margin="5,2,0,2" >
+                            <Rectangle Width="1" Height="15" Fill="DarkBlue" Opacity=".5" StrokeThickness="0" Margin="5,0"/>
+                            <TextBlock Text="Elapsed Time" Foreground="#FF7C7C7C" Grid.Column="0" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Path=ElapsedTime}" Foreground="{DynamicResource HeaderBlueBrush}" Margin="5,0,0,0" Visibility="Visible"  VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+                       
+                  
+                </Grid>
+                <StackPanel>
+                    <ProgressBar x:Name="progressBar" Height="40" Margin="20,15,20,0" Style="{DynamicResource ProgressBarStyle}" Tag="{Binding Path=ProgressBarTag}" Value="100" Foreground="{DynamicResource ForegroundBlueBrush}"/>
+
+                  
+                    <TextBox x:Name="NotificationMessagesLabel" AcceptsReturn="True" Tag="Message" IsReadOnly="True" Text="{Binding ProgressMessage}"  UseLayoutRounding="True" VerticalScrollBarVisibility="Auto" Height="125" Style="{DynamicResource InputTextBoxStyle}" Margin="20,5,20,0"/>
+                </StackPanel>
+                <StackPanel x:Name="CompletedPanel" Visibility="{Binding IsCompletedPanelVisible,Converter={StaticResource VisibilityConverter}}" >
+                    <TextBlock Text="{Binding Path=OutputFolderLabel, Source={StaticResource ResourceKeyStrings}}" Style="{DynamicResource SectionHeaderLabelstyle}" d:LayoutOverrides="Height" Margin="{DynamicResource TopTwentyMargin}"/>
+                    <Grid Margin="20,5,20,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                       
+                    </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                    <TextBox x:Name="OutputFolderCompletedTxt" Text="{Binding UpdatedOutputFolderPath,Mode=OneWay}" Height="Auto" MaxHeight="75" TextWrapping="Wrap"  Tag="Stretch" Style="{DynamicResource InputTextBoxStyle}" FontSize="{DynamicResource LabelFontsize}" UseLayoutRounding="True" Margin="{DynamicResource ContentItemMargin}" IsReadOnly="True"/>
+                        <StackPanel Grid.Row="1"  HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,10,0,0">
+                            <Button x:Name="openFileBtn" Tag="/Resources/Images/Folder.png" Content="{Binding Path=OpenFileLabel, Source={StaticResource ResourceKeyStrings}}" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource BlueButtonStyle}" Height="31" Margin="0,0,10,0">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click" SourceName="openFileBtn">
+                                <i:InvokeCommandAction x:Name="openFile" 
+                                               Command="{Binding OpenFileCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                    <Button x:Name="openFolderBtn" Tag="/Resources/Images/OpenFolderLocation.png" Content="{Binding Path=OpenFolderLocationLabel, Source={StaticResource ResourceKeyStrings}}" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource BlueButtonStyle}" Height="31" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click" SourceName="openFolderBtn">
+                                <i:InvokeCommandAction x:Name="openFolder" 
+                                               Command="{Binding OpenOutputFolderCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="ButtonContainer" Grid.Row="3">
+            <Rectangle Opacity=".2" VerticalAlignment="Top" Fill="{DynamicResource ForegroundBlueBrush}" Height="1"/>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="0,0,10,0">
+                <StackPanel x:Name="step3BtnGroup" Orientation="Horizontal" >
+                    <Button x:Name="backProgressBtn" Tag="/Resources/Images/Back.png" Content="{Binding Path=OutputBackButton, Source={StaticResource ResourceKeyStrings}}" VerticalAlignment="Center" Height="43" Style="{DynamicResource ImageContentButtonStyle}" d:LayoutOverrides="Width" Margin="0,0,10,0" Visibility="{Binding IsBackToOutputVisible, Converter={StaticResource VisibilityConverter}}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click" SourceName="backProgressBtn">
+                                <i:InvokeCommandAction x:Name="backImage" 
+                                               Command="{Binding BackToOutputDetailsCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                    <Button x:Name="cancelBtn" Tag="/Resources/Images/Cancel.png" Content="{Binding Path=ProgressCancelButton, Source={StaticResource ResourceKeyStrings}}" VerticalAlignment="Center" Height="43" Style="{DynamicResource ImageContentButtonStyle}" Margin="0,0,10,0" Visibility="{Binding IsCancelVisible, Converter={StaticResource VisibilityConverter}}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click" SourceName="cancelBtn">
+                                <i:InvokeCommandAction x:Name="CancelImage" 
+                                               Command="{Binding CancelGenerateImageCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                    <Button x:Name="restartBtn" Tag="/Resources/Images/Reset.png" Content="{Binding Path=ProgressResetButton, Source={StaticResource ResourceKeyStrings}}" VerticalAlignment="Center" Height="43" Style="{DynamicResource ImageContentButtonStyle}" HorizontalContentAlignment="Right" Margin="0,0,10,0" Visibility="{Binding IsRestartVisible,Converter={StaticResource VisibilityConverter}}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click" SourceName="restartBtn">
+                                <i:InvokeCommandAction x:Name="RestartImage" 
+                                               Command="{Binding RestartGenerateImageCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                    <Button x:Name="startOverBtn" Tag="/Resources/Images/Restart.png"  Content="{Binding Path=ProgressStartOverButton, Source={StaticResource ResourceKeyStrings}}" VerticalAlignment="Center" Height="43" Style="{DynamicResource ImageContentButtonStyle}"  d:LayoutOverrides="Width" Margin="0,0,10,0" Visibility="{Binding IsStartOverVisible, Converter={StaticResource VisibilityConverter}}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click" SourceName="startOverBtn">
+                                <i:InvokeCommandAction x:Name="CompleteImageGeneration" 
+                                               Command="{Binding StartOverCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                    <Button x:Name="closeBtn" Tag="/Resources/Images/Close.png" HorizontalContentAlignment="Right" Content="{Binding Path=ProgressCloseButton, Source={StaticResource ResourceKeyStrings}}" VerticalAlignment="Center" Height="43" Style="{DynamicResource ImageContentButtonStyle}" d:LayoutOverrides="Width" Margin="0,0,10,0" Visibility="{Binding IsCloseVisible, Converter={StaticResource VisibilityConverter}}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click" SourceName="closeBtn">
+                                <i:InvokeCommandAction x:Name="CloseApplication" 
+                                               Command="{Binding CloseCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

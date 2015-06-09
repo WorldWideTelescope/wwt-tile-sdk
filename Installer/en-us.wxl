@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+  <!--The locale ID -->
+  <String Id="LCID">1033</String>
+
+  <!-- Product description strings -->
+  <String Id="ProductManufacturer">Microsoft Research</String>
+  <String Id="ProductName">WorldWide Telescope SDK</String>
+  <String Id="PackageDescription">WorldWide Telescope SDK installation database.</String>
+  <String Id="PackageComments">This installer database contains the logic and data required to install WorldWide Telescope SDK.</String>  
+
+  <!--Launch condition error messages-->
+  <String Id="MustRunPrivileged">Only members of the Administrator or Power User groups can install, repair, or remove [ProductName] from this computer.</String>
+  <String Id="NetFrameworkMissing">[ProductName] requires the .Net Framework 4.0 Full to be installed on your machine.</String>
+  <String Id="NewerVersionFound">Installation of [ProductName] cannot continue as a newer version of this product is already installed. To configure or remove the existing version of this product, use Add/Remove Programs on the Control Panel."</String>
+ 
+  <!-- Help links (displayed in add/remove programs)-->
+  <String Id="ARPHELPLINK">http://www.worldwidetelescope.org</String>
+  <String Id="ARPURLINFOABOUT">http://www.worldwidetelescope.org</String>
+  
+  <!-- Icon to be displayed in Add/Remove Programs -->
+  <String Id="ARPPRODUCTICON">WWTSDK.ico</String>
+  <String Id="MaintenanceWelcomeDlgDescription" Overridable="yes">The Setup Wizard allows you to repair the [ProductName] features installed on your computer or to remove it from your computer. Click Next to continue or Cancel to exit the Setup Wizard.</String>
+
+  <!-- Shortcut strings -->
+  <String Id="MicrosoftResearchShortcutFolderName">Microsoft Research</String>
+  <String Id="WwtSdkShortcutFolderName">WorldWide Telescope SDK</String>
+  <String Id="LCAPISampleExe">Layer Control API Sample</String>
+  <String Id="LCAPIDoc">Layer Control API Documentation</String>
+  <String Id="TileGeneratorExe">Tile Generator</String>
+  <String Id="HelpPage">WorldWide Telescope SDK Getting Started</String>
+  <String Id="SphereToaster">Sphere Toaster</String>
+  <String Id="StudyChopper">Study Chopper</String>
+
+  <!-- SDK installation folder names -->
+  <String Id="SdkInstallationRootFolderName">Microsoft Research</String>
+  <String Id="SdkInstallationFolderName">WorldWide Telescope SDK</String>
+  <String Id="LicenseFolderName">License</String>
+  <String Id="LCAPISampleFolderName">LCAPI Sample</String>
+  <String Id="LCAPISourceCodeFolderName">Source Code</String>
+  <String Id="LCAPISourceCodeLcapiFolderName">Lcapi</String>
+  <String Id="LCAPISourceCodePropertiesFolderName">Properties</String>
+  <String Id="LCAPISourceCodeCommonFolderName">Common</String>
+  <String Id="ImageTilingSdkFolderName">Tile Pyramid SDK</String>
+  <String Id="ImageTilingSamplesFolderName">Samples</String>
+  <String Id="ImageTilingTileGeneratorFolderName">Tile Generator</String>
+  <String Id="LibsFolderName">Libs</String>
+  <String Id="LibsInternalFolderName">Internal</String>
+  <String Id="SourceCodeFolderName">Source Code</String>
+  <String Id="CoreFolderName">Core</String>
+  <String Id="CorePropertiesFolderName">Properties</String>
+  <String Id="SourceCodeSamplesFolderName">Samples</String>
+  <String Id="BlueMarbleAppFolderName">BlueMarbleApp</String>
+  <String Id="BlueMarbleAppPropertiesFolderName">Properties</String>
+  <String Id="SpecificRegionDataSetFolderName">SpecificRegionDataSet</String>
+  <String Id="SpecificRegionDataSetPropertiesFolderName">Properties</String>
+  <String Id="WorldDataSetFolderName">WorldDataSet</String>
+  <String Id="WorldDataSetPropertiesFolderName">Properties</String>
+  <String Id="WorldDataSetColorMapFolderName">ColorMap</String>
+  <String Id="SharingServiceRootFolderName">Sharing Service</String>
+  <String Id="SharingServiceSourceCodeFolderName">Source Code</String>
+  <String Id="SharingServiceServiceReferencesFolderName">Service References</String>
+  <String Id="SharingService.WebFolderName">SharingServiceWeb</String>
+  <String Id="SharingService.WebCommonFolderName">Common</String>
+  <String Id="SharingService.WebAppLocalResourcesFolderName">App_LocalResources</String>
+  <String Id="SharingService.WebPropertiesFolderName">Properties</String>
+  <String Id="SharingService.WebRepositoryFolderName">Repository</String>
+  <String Id="SharingService.WebResourcesFolderName">Resources</String>
+  <String Id="SharingService.WebServiceFolderName">Service</String>
+  <String Id="TileGeneratorFolderName">TileGenerator</String>
+  <String Id="TileGeneratorCommonFolderName">Common</String>
+  <String Id="TileGeneratorPropertiesFolderName">Properties</String>
+  <String Id="TileGeneratorResourcesFolderName">Resources</String>
+  <String Id="TileGeneratorResourcesImagesFolderName">Images</String>
+  <String Id="TileGeneratorResourcesStylesFolderName">Styles</String>
+  <String Id="TileGeneratorViewFolderName">View</String>
+  <String Id="TileGeneratorViewModelFolderName">ViewModel</String>
+  <String Id="SphereToasterFolderName">Sphere Toaster</String>
+  <String Id="StudyChopperFolderName">Study Chopper</String>
+</WixLocalization>

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Microsoft.Research.Wwt.SharingService.Web.TileService" CodeBehind="TileService.svc.cs" %>
