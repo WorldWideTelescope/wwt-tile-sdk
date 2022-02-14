@@ -1,5 +1,13 @@
 Copyright (C) .NET Foundation
 
+# This repository is unmaintained
+
+This repository contains useful code but it is unmaintained. To create WWT tile pyramids,
+the current recommendation is to use the [Toasty] tool.
+
+[Toasty]: https://toasty.readthedocs.io/
+
+
 # wwt-tile-sdk
 This SDK support the development of pipelines for large scale processing of WWT compatible TOAST and Mercator projected Tiles for both image tiles and DEM tiles, including sky and planetary surface images.
 
