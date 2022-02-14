@@ -974,7 +974,7 @@ namespace Microsoft.Research.Wwt.SharingService.Web
                                 AddPlaceElementToFolder(
                                         urlParts[0],
                                         urlParts[1],
-                                        urlParts[3],
+                                        urlParts[2],
                                         file.IsLatestFile(this.CommunityServiceLatestFileDays),
                                         folder,
                                         file.GetModifiedDate());
